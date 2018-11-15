@@ -22,8 +22,8 @@
     <!-- owl.carousel CSS
 		============================================ -->
     <link rel="stylesheet" href="<?php echo site_url();?>css/owl.carousel.css">
-    <link rel="stylesheet" href="css/owl.theme.css">
-    <link rel="stylesheet" href="css/owl.transitions.css">
+    <link rel="stylesheet" href="<?php echo site_url();?>css/owl.theme.css">
+    <link rel="stylesheet" href="<?php echo site_url();?>css/owl.transitions.css">
     <!-- animate CSS
 		============================================ -->
     <link rel="stylesheet" href="<?php echo site_url();?>css/animate.css">
