@@ -7,7 +7,7 @@
 	<div class="error-pagewrap">
 		<div class="error-page-int">
 			<div class="text-center m-b-md custom-login">
-				<h3></h3>
+				<h3>Por favor Logeate</h3>
 				<p>This is the best app ever!</p>
 			</div>
 			<div class="content-error">
