@@ -36,7 +36,7 @@
 				</div>
 			</div>
 			<div class="text-center login-footer">
-				<p>Copyright © 2018. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">Colorlib</a></p>
+				<p>Copyright © 2018. Todos los derechos reservados. HolaMundo cor!!</a></p>
 			</div>
 		</div>   
 	</div>
