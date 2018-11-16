@@ -45,7 +45,7 @@
 	<script src=" <?php echo base_url('assets/js/main.js') ?> "></script>
 	<!-- tawk chat JS
 		============================================ -->
-	<script src=" <?php echo base_url('assets/js/tawk-chat.js') ?> "></script>
+	<!--<script src=" <?php echo base_url('assets/js/tawk-chat.js') ?> "></script>-->
 
 	</body>
 

@@ -7,8 +7,8 @@
 	<div class="error-pagewrap">
 		<div class="error-page-int">
 			<div class="text-center m-b-md custom-login">
-				<h3></h3>
-				<p>This is the best app ever!</p>
+				<h3>Iniciar sesión</h3>
+				<p>Introduzca su usuario y contraseña!</p>
 			</div>
 			<div class="content-error">
 				<div class="hpanel">
@@ -30,14 +30,16 @@
 								<p class="help-block small">(if this is a private computer)</p>
 							</div>-->
 							<button class="btn btn-success btn-block loginbtn">Iniciar sesión</button>
-							<a class="btn btn-default btn-block" href="#">Registro</a>
+							<a class="btn btn-default btn-block" href="#">Recuperar contraseña</a>
 						</form>
 					</div>
 				</div>
 			</div>
-			<div class="text-center login-footer">
-				<p>Copyright © 2018. Todos los derechos reservados. HolaMundo cor!!</a></p>
-			</div>
+			<footer>
+				<div class="text-center login-footer">
+					<p>©2018 Todos los derechos reservados | HolaMundo Corp.® | Desarrollo Web</p>
+				</div>
+			</footer>
 		</div>   
 	</div>
 	
