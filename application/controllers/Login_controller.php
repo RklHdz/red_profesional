@@ -22,7 +22,13 @@
 			$this->load->view('login/Footer_login_view.php');
 		}
 
-		
+		// función que muestar la vista para poder recuperar la contraseña
+		public function recuperar_contraseña()
+		{
+			$this->load->view('login/Header_login_view.php');
+			$this->load->view('login/Recuperar_pass_view');
+			$this->load->view('login/Footer_login_view.php');
+		}
 	}
 
  ?>

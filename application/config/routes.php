@@ -52,3 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Login_controller/mostrar_login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+//Rutas para el Modulo de Login
+$route['recuperar-contraseña'] = 'Login_controller/recuperar_contraseña';
