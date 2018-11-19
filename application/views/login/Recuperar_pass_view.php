@@ -6,7 +6,7 @@
 		<div class="error-page-int">
 			<div class="text-center ps-recovered">
 				<h3>RECUPERAR CONTRASEÑA</h3>
-				<p>Por favor llenar el formulario, para poder recuperar su contraseña</p>
+				<p>Por favor llenar el formulario, para poder obtener una contraseña generica</p>
 			</div>
 			<div class="content-error">
 				<div class="hpanel">
@@ -18,10 +18,10 @@
                             <div class="form-group">
                                 <label class="control-label" for="username">Correo</label>
                                 <input type="text" placeholder="example@gmail.com" title="Please enter you email adress" required="" value="" name="username" id="username" class="form-control">
-                                <span class="help-block small">Your registered email address</span>
+                                <span class="help-block small">Su dirección de correo registrada</span>
                             </div>
 
-                            <button class="btn btn-success btn-block">Reset password</button>
+                            <button class="btn btn-success btn-block">Resetear contraseña</button>
                         </form>
                     </div>
                 </div>

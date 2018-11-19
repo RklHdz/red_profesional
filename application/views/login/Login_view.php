@@ -30,7 +30,7 @@
 								<p class="help-block small">(if this is a private computer)</p>
 							</div>-->
 							<button class="btn btn-success btn-block loginbtn">Iniciar sesión</button>
-							<a class="btn btn-default btn-block" href="<?php echo base_url() ?> recuperar_contraseña">Recuperar contraseña</a>
+							<a class="btn btn-default btn-block" href="<?php echo base_url()?>recuperar-password">Recuperar contraseña</a>
 						</form>
 					</div>
 				</div>
