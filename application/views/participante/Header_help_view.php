@@ -54,7 +54,7 @@
 	<!-- calendar CSS
 		============================================ -->
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/calendar/fullcalendar.min.css') ?>">
-	<link rel="stylesheet" href="<?php echo base_url('css/calendar/fullcalendar.print.min.css') ?>">
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/calendar/fullcalendar.print.min.css') ?>">
 	<!-- style CSS
 		============================================ -->
 	<link rel="stylesheet" href="<?php echo base_url('assets/style.css') ?>">
