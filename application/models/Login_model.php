@@ -9,7 +9,18 @@
 	class Login_model extends CI_Model
 	{
 		
-		
+		public function validar_credenciales($usuario, $password)
+		{	
+			$this->db->where('usuario_login="'.$usuario.'" and contrasenia_login="'.$password.'"');
+			$resultado=$this->db->get('tab_login'); 
+    			if ($resultado->result_array()) 
+    			{
+    				return 1;
+    			}else
+    			{
+        			return 0;
+    			}
+		}
 	}
 
 
