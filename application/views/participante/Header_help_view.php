@@ -7,6 +7,8 @@
 	<title>Bolsa de Empleo</title>
 	<meta name="description" content="Encuentras las mejores ofertas de trabajo y pasantía en el área informática, regístrate y crea tu Curriculum Vitae"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--requerimos el archivo donde estan las rutas de nuestros archivos js y css-->
 	<!-- favicon
 		============================================ -->
 	<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('assets/img/empleo.ico') ?>">

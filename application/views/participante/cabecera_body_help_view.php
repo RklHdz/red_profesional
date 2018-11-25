@@ -1,6 +1,7 @@
 
-	<!-- Start Welcome area -->
+	<!-- /Inicio del contendedor general -->
 	<div class="all-content-wrapper">
+		<!--Este contenedor contiene un logo, que aparece cuando la ventana del navegador se hace pequeña-->
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -9,8 +10,10 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> <!--/.Fin de container-fluid-->
+
 		<div class="header-advance-area">
+			<!--/.Inicio del menu vertical-->
 			<div class="header-top-area">
 				<div class="container-fluid">
 					<div class="row">
@@ -62,6 +65,7 @@
 														</div>
 													</div>
 												</li>-->
+												<!--Inicio del contenedor de notificaciones-->
 												<li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="educate-icon educate-bell" aria-hidden="true"></i><span class="indicator-nt"></span></a>
 													<div role="menu" class="notification-author dropdown-menu animated zoomIn">
 														<div class="notification-single-top">
@@ -74,7 +78,8 @@
 															<a href="#">Ver todas las notificaciones</a>
 														</div>
 													</div>
-												</li>
+												</li> <!--fin del contenedor de notificaciones-->
+												<!--Inicio del contenedor de usuario-->
 												<li class="nav-item">
 													<a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
 															<img src="<?php echo base_url('assets/img/product/pro4.jpg') ?>" alt="" />
@@ -89,7 +94,8 @@
 														<li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Cerrar Sesión</a>
 														</li>
 													</ul>
-												</li>
+												</li> <!--fin del contenedor de usuario-->
+												<!--Inicio del panel de ajustes-->
 												<li class="nav-item nav-setting-open"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="educate-icon educate-menu"></i></a>
 
 													<div role="menu" class="admintab-wrap menu-setting-wrap menu-setting-wrap-bg dropdown-menu animated zoomIn">
@@ -527,7 +533,7 @@
 															</div>
 														</div>
 													</div>
-												</li>
+												</li> <!--fin del panel de ajustes-->
 											</ul>
 										</div>
 									</div>
@@ -536,8 +542,8 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<!-- Mobile Menu start -->
+			</div> <!--/.Fin del menu vertical-->
+			<!-- Inicio para el menú para movil, solo sera visible desde un celular. -->
 			<div class="mobile-menu-area">
 				<div class="container">
 					<div class="row">
@@ -721,6 +727,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> <!--Fin para el menul movil-->
 			
-		</div>
+		</div> <!-- ./fin header-advance-area-->
+	

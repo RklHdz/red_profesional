@@ -1,4 +1,5 @@
-	<div class="footer-copyright-area">
+		<!--Inicio del pie de pagina-->
+		<div class="footer-copyright-area">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12">
@@ -8,8 +9,8 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+		</div> <!-- /fin del pie de pagina -->
+	</div> <!-- /fin del contendedor general -->
 
 	
 
