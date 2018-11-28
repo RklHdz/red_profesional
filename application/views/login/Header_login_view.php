@@ -66,4 +66,6 @@
 	<!-- modernizr JS
 		============================================ -->
 	<script src=" <?php echo base_url('assets/js/vendor/modernizr-2.8.3.min.js') ?> "></script>
-	
+	<!--sweetalert.-->
+	<script src="<?php echo base_url('assets/js/sweetalert.min.js');?> "></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
