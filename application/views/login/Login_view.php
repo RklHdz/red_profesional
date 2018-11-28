@@ -27,7 +27,7 @@
 								<input type="checkbox" class="i-checks"> Remember me </label>
 								<p class="help-block small">(if this is a private computer)</p>
 							</div>-->
-							<button class="btn btn-success btn-block loginbtn">Iniciar sesión</button>
+							<button onclick="verificar_credenciales()" class="btn btn-success btn-block loginbtn">Iniciar sesión</button>
 							<a href="<?php echo base_url() ?>Welcome/index">prueba</a>
 							<a class="btn btn-default btn-block" href="<?php echo base_url()?>recuperar-password">Recuperar contraseña</a>
 						</form>

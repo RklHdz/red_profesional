@@ -46,8 +46,42 @@
 	<!-- tawk chat JS
 		============================================ -->
 	<!--<script src=" <?php echo base_url('assets/js/tawk-chat.js') ?> "></script>-->
+	<!--sweetalert.-->
+	<script src="<?php echo base_url('assets/js/sweetalert.min.js');?> "></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+	<script src = " https://unpkg.com/sweetalert/dist/sweetalert.min.js " > </script> 
 
 	</body>
 
 </html>
 
+
+<script type="text/javascript">
+
+	function verificar_credenciales()
+	{
+    	if($('#username').val()==''||$('#password').val()=='')
+    	{
+      		swal('Ni le ocre perrito, para donde va?, lleve los campos, no pueden estar vacios');
+    	}else 
+    	{
+			$.ajax({
+			type:"POST",
+			url:'<?php echo site_url();?>Login_controller/iniciar_sesion', 
+			data: $('#loginForm').serialize(),
+			success: function(data)
+			{
+				if(data===1){
+					swal("OHH YEAH!! Bienvenido, pase adelante",'Excelente','success'); 
+				}
+
+				else if(data===0){
+					swal("Ohh :c, lo sentimos, la contraseña o usuario no son validos"); 
+				}
+			}
+			});
+
+    	}
+  	}
+
+</script>

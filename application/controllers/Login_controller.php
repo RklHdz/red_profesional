@@ -31,16 +31,10 @@
 			$resultado=$this->Login->validar_credenciales($usuario,$password); 
 			if ($resultado===1)
 			{
-         		$this->load->view('participante/Header_help_view');
-				$this->load->view('participante/Menu_help_view');
-				$this->load->view('participante/cabecera_body_help_view');
-				$this->load->view('participante/help');
-				$this->load->view('participante/Footer_help_view');
+         		echo 1;
             }else
          	{
-         		$this->load->view('login/Header_login_view');
-				$this->load->view('login/Login_view');
-				$this->load->view('login/Footer_login_view');
+         		echo 0;
          	}
 
 		}
@@ -55,3 +49,6 @@
 	}
 
  ?>
+
+
+
