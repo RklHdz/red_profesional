@@ -55,7 +55,10 @@ $route['404_override'] = '';
 
 //Rutas para el Modulo de Login
 $route['recuperar-password'] = 'Login_controller/recuperar_password';
+$route['login'] = 'Login_controller/mostrar_login';
 
+
+$route['ejemplo'] = 'Ejemplo/participante';
 
 $route['translate_uri_dashes'] = FALSE;
 

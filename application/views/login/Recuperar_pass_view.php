@@ -1,35 +1,27 @@
-<body>
-    <!--[if lt IE 8]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-	<![endif]-->
-	<div class="error-pagewrap">
-		<div class="error-page-int">
-			<div class="text-center ps-recovered">
-				<h3>RECUPERAR CONTRASEÑA</h3>
-				<p>Por favor llenar el formulario, para poder obtener una contraseña generica</p>
-			</div>
-			<div class="content-error">
-				<div class="hpanel">
-                    <div class="panel-body poss-recover">
-                        <p>
-                            Introduzca su dirección de correo electronico, para resetear su contraseña.
-                        </p>
-                        <form action="#" id="loginForm">
-                            <div class="form-group">
-                                <label class="control-label" for="username">Correo</label>
-                                <input type="text" placeholder="example@gmail.com" title="Please enter you email adress" required="" value="" name="username" id="username" class="form-control">
-                                <span class="help-block small">Su dirección de correo registrada</span>
-                            </div>
+   <div id="login-page">
+    <div class="container">
+      <form class="rest-pass" action="#">
+        <h2 class="rest-pass-heading">Restaurar contraseña</h2>
 
-                            <button class="btn btn-success btn-block">Resetear contraseña</button>
-                        </form>
-                    </div>
-                </div>
-			</div>
-			<footer>
-                <div class="text-center login-footer">
-                    <p>©2018 Todos los derechos reservados | HolaMundo Corp.® | Desarrollo Web</p>
-                </div>
-            </footer>
-		</div>   
+				<div class="text-center">
+        	<p>
+        		Entendemos que perdiste tu contraseña de la <strong>RED PROFESIONAL</strong>
+        	</p>
+        	<p>
+        		¡Pero no te preocupes! Puedes usar el siguiente formulario para obtener una nueva contraseña.
+        	</p>
+        </div>
+
+
+
+        <div class="login-wrap" align="center">
+        	<label >Introduzca su usuario asignado, para reestablecer su contraseña.</label>
+          <input type="text" class="form-control" placeholder="usuario" autofocus>
+          <br>
+          <button class="btn btn-theme " href="#" type="submit"><i class="fa fa-paper-plane"></i> Recuperar contraseña</button>
+        </div>
+        <a style="padding:  0px 25px" href="<?php echo base_url()?>">REGRESAR LOGIN</a>
+      </form>
+
     </div>
+  </div>
