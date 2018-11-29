@@ -12,6 +12,7 @@
 		function __construct()
 		{
 			parent::__construct();
+			$this->load->model('Login_model', 'Login', TRUE); // carga el modelo para poder acceder a sus metodos, en el primer paramentro ponemos el nombre del modelo, en el segundo se reasigna nombre al modelo y en el tercero se le pondra TRUE para que se conecte automaticamente a la base de datos 
 		}
 
 		
@@ -21,6 +22,21 @@
 			$this->load->view('login/header/Header_login_view');
 			$this->load->view('login/Login_view');
 			$this->load->view('login/footer/Footer_login_view');
+		}
+
+		public function iniciar_sesion()
+		{	//recuperamos datos del formulario
+			$usuario = $this->input->post('username');
+			$password = $this->input->post('password');
+			$resultado=$this->Login->validar_credenciales($usuario,$password); 
+			if ($resultado===1)
+			{
+         		echo 1;
+            }else
+         	{
+         		echo 0;
+         	}
+
 		}
 
 		// función que muestar la vista para poder recuperar la contraseña
