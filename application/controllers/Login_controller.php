@@ -15,7 +15,16 @@
 			$this->load->model('Login_model', 'Login', TRUE); // carga el modelo para poder acceder a sus metodos, en el primer paramentro ponemos el nombre del modelo, en el segundo se reasigna nombre al modelo y en el tercero se le pondra TRUE para que se conecte automaticamente a la base de datos 
 		}
 
-		
+		public function index()
+		{
+			$this->load->view('componentes/header/Header_view');//header <br>
+			$this->load->view('componentes/nav/Nav_view');//navegación <br>
+			$this->load->view('componentes/panel/Participante_view');//panel para el participante <br>
+			$this->load->view('ejemplo'); //vista que se quiere mostrar <br>
+			$this->load->view('componentes/footer/Footer_view');//pie de pagina
+
+		} 
+
 		// esta función nos muestra la vista para poder logearnos y acceder al sistema.
 		public function mostrar_login()
 		{
@@ -29,14 +38,23 @@
 			$usuario = $this->input->post('username');
 			$password = $this->input->post('password');
 			$resultado=$this->Login->validar_credenciales($usuario,$password); 
-			if ($resultado===1)
+			/*if ($resultado===1)
 			{
          		echo 1;
             }else
          	{
          		echo 0;
-         	}
+         	}*/
 
+         	$data = array(
+            'usuario_login' => $usuario,
+            'id' => 1,
+			'login' => TRUE,
+                   
+         	);
+
+         	$this->session->set_userdata($data);
+         	 $this->session->userdata('usuario_login');
 		}
 
 		// función que muestar la vista para poder recuperar la contraseña
