@@ -11,7 +11,7 @@
 			<div class="content-error">
 				<div class="hpanel">
 					<div class="panel-body">
-						<form action="<?php echo site_url();?>Login_Controller/iniciar_sesion" id="loginForm" method=POST>
+						<form action="" id="loginForm" method=POST>
 							<div class="form-group">
 								<label class="control-label" for="username">Usuario</label>
 								<input type="text" placeholder="example@gmail.com" title="Please enter you username" required="" value="" name="username" id="username" class="form-control">
@@ -27,7 +27,7 @@
 								<input type="checkbox" class="i-checks"> Remember me </label>
 								<p class="help-block small">(if this is a private computer)</p>
 							</div>-->
-							<button onclick="verificar_credenciales()" class="btn btn-success btn-block loginbtn">Iniciar sesión</button>
+							<button type="button" onclick="verificar_credenciales()" class="btn btn-success btn-block loginbtn">Iniciar sesión</button>
 							<a href="<?php echo base_url() ?>Welcome/index">prueba</a>
 							<a class="btn btn-default btn-block" href="<?php echo base_url()?>recuperar-password">Recuperar contraseña</a>
 						</form>
