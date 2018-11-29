@@ -54,7 +54,7 @@
          	);
 
          	$this->session->set_userdata($data);
-         	 $this->session->userdata('usuario_login');
+
 		}
 
 		// función que muestar la vista para poder recuperar la contraseña
