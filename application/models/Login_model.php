@@ -20,6 +20,12 @@
         			return 0;
     			}
 		}
+
+		 public function get_login($id)
+		 {
+		 	$query = $this->db->get('tab_login'); 
+      		return $query;
+   		}
 		
 	}
 

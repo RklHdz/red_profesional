@@ -38,23 +38,28 @@
 			$usuario = $this->input->post('username');
 			$password = $this->input->post('password');
 			$resultado=$this->Login->validar_credenciales($usuario,$password); 
-			/*if ($resultado===1)
+			if ($resultado===0)
 			{
-         		echo 1;
+         		echo 0;
             }else
          	{
-         		echo 0;
-         	}*/
+         		$respuesta = $this->Login->get_login($resultado->id_login); 
 
-         	$data = array(
-            'usuario_login' => $usuario,
-            'id' => 1,
-			'login' => TRUE,
-                   
-         	);
+         		$data = array(
+		            'id_login' => $res->id_usuario,
+					'usuario_login' => $res->usuario,
+		            'rol_login' => $res->rol,
+		            'id' => 1,
+		            'login' => TRUE,
+		            'contador' => $con,
+		            'notificaciones' => $notis,
+		         );
 
-         	$this->session->set_userdata($data);
+         		$this->session->set_userdata($data);
+         		
+         	}
 
+         	         	
 		}
 
 		// función que muestar la vista para poder recuperar la contraseña
