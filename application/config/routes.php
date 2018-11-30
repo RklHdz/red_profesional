@@ -57,6 +57,9 @@ $route['404_override'] = '';
 $route['recuperar-password'] = 'Login_controller/recuperar_password';
 $route['login'] = 'Login_controller/mostrar_login';
 
+#agregar usuario
+$route['agregar-usuario'] = 'Root_controller/agregar_usuario';
+
 
 $route['ejemplo'] = 'Ejemplo/participante';
 
