@@ -25,4 +25,48 @@ class Root_controller extends CI_Controller
 		$this->load->view('root/Agregar_usuario_view');//vista que se quiere mostrar
 		$this->load->view('componentes/footer/Footer_view');
 	}
+
+	//función que guardara los datos del usuario
+	public function guardar_usuario()
+	{
+		if($this->input->post())
+		{
+			//datos para la tabla tab_usuario
+			$nombre_usuario = $this->input->post('nombre_usuario');
+			$apellido_usuario = $this->input->post('apellido_usuario');
+			$correo_usuario = $this->input->post('correo_usuario');
+
+			//datos para la tabla tab_login
+			$usuario_login = $this->input->post('usuario_login');
+			$contrasenia_login = $this->input->post('contrasenia_login');
+			$rol_login = $this->input->post('rol_login');
+
+			//creamos las reglas de validación con set_rules, el cual recibe tres parametros
+			//el primero es el nombre del campo a validar
+			//el segundo es el valor que se le mostrará al usuario cuando haya un error
+			//el tercero es la regla en si
+			$this->form_validation->set_rules('nombre_usuario','Nombres','trim|required');
+			$this->form_validation->set_rules('apellido_usuario','Apellidos','trim|required');
+			$this->form_validation->set_rules('correo_usuario','Correo Electronico','trim|required|valid_email');
+
+			$this->form_validation->set_rules('usuario_login','Nombre de usuario','trim|required');
+			$this->form_validation->set_rules('contrasenia_login','Contraseña','trim|required|min_length[6]');
+			
+
+			//mensajes personalizados
+			$this->form_validation->set_message('required', 'El campo %s es obligatorio, favor llenarlo');
+			$this->form_validation->set_message('valid_email', 'Digite un correo electronico valido');
+			$this->form_validation->set_message('min_length', 'La contraseña no debe de ser menor a 6 caracteres');
+
+			//verificamos que el formulario este valido
+			if($this->form_validation->run() === TRUE)
+			{
+				echo "<script>alert('Excelente')</script>";
+				$this->agregar_usuario();
+			}else{
+				$this->agregar_usuario();
+
+			}
+		}
+	}
 }

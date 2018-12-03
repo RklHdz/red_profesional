@@ -59,6 +59,7 @@ $route['login'] = 'Login_controller/mostrar_login';
 
 #agregar usuario
 $route['agregar-usuario'] = 'Root_controller/agregar_usuario';
+$route['guardar-usuario'] = 'Root_controller/guardar_usuario';
 
 
 $route['ejemplo'] = 'Ejemplo/participante';
