@@ -12,20 +12,15 @@
 		{	
 			$this->db->where('usuario_login="'.$usuario.'" and contrasenia_login="'.$password.'"');
 			$resultado=$this->db->get('tab_login'); 
-    			if ($resultado->result_array()) 
-    			{
-    				return 1;
-    			}else
-    			{
-        			return 0;
-    			}
+    			if ($resultado->num_rows()>0) {
+					return $resultado->row();
+				}else{
+					return false;
+				}
+
 		}
 
-		 public function get_login($id)
-		 {
-		 	$query = $this->db->get('tab_login'); 
-      		return $query;
-   		}
+		 
 		
 	}
 

@@ -38,26 +38,24 @@
 			$usuario = $this->input->post('username');
 			$password = $this->input->post('password');
 			$resultado=$this->Login->validar_credenciales($usuario,$password); 
-			if ($resultado===0)
-			{
-         		echo 0;
-            }else
-         	{
-         		$respuesta = $this->Login->get_login($resultado->id_login); 
-
+			if (!$resultado){	
+				 echo 0;
+         	}else{	
          		$data = array(
-		            'id_login' => $res->id_usuario,
-					'usuario_login' => $res->usuario,
-		            'rol_login' => $res->rol,
-		            'id' => 1,
+		            'id_login' => $resultado->id_login,
+					'usuario_login' => $resultado->usuario_login,
+		            'rol_login' => $resultado->rol_login,
 		            'login' => TRUE,
-		            'contador' => $con,
-		            'notificaciones' => $notis,
-		         );
+		        );
 
          		$this->session->set_userdata($data);
-         		
-         	}
+         		echo 1;
+         			/*if ($this->session->userdata('rol')=='ex') {
+					        echo 1;
+					    }*/
+					      
+          	}
+          	
 
          	         	
 		}

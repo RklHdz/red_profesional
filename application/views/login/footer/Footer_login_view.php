@@ -19,7 +19,7 @@
   {
       if($('#username').val()==''||$('#password').val()=='')
       {
-          swal('Ni le ocre perrito, para donde va?, lleve los campos, no pueden estar vacios');
+          swal('Llene los campos, no pueden estar vacios');
       }else 
       {
       $.ajax({
