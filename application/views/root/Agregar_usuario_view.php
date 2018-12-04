@@ -3,9 +3,19 @@
 			<h1>Agregar usuario</h1>
 		</center>
 
-		<?php echo form_error('nombre_usuario'); ?>
-		<?php echo form_error('apellido_usuario'); ?>
-		<?php echo form_error('correo_usuario'); ?>
+		
+		<?php //echo form_error('nombre_usuario'); ?>
+		<?php //echo form_error('apellido_usuario'); ?>
+		<?php //echo form_error('correo_usuario'); ?>
+
+		    <?php
+		    if ($this->session->flashdata('error')){
+		        echo '<div class="alert alert-danger">';
+		        echo $this->session->flashdata('error');
+		        echo "</div>";
+		    }
+		    ?>
+
 <!---------------------- DATOS GENERALES ------------------------>
 <form class="style-form" action="<?php echo base_url('guardar-usuario') ?>" method="post">
 		<div class="row mt">
@@ -16,20 +26,20 @@
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label for="nombre_usuario"><strong>Nombres</strong></label>
-								<input type="text" class="form-control" id="nombre_usuario" required="" name="nombre_usuario" placeholder="Digite sus nombres" value="<?php echo set_value('nombre_usuario'); ?>" >
+								<input type="text" class="form-control" id="nombre_usuario"  name="nombre_usuario" placeholder="Digite sus nombres" value="<?php echo set_value('nombre_usuario'); ?>" >
 								
 								
 							</div>
 							<div class="form-group col-md-6">
 								<label for="apellido_usuario"><strong>Apellidos</strong></label>
-								<input type="text" class="form-control" id="apellido_usuario" name="apellido_usuario" required="" placeholder="Digite sus apellidos" value="<?php echo set_value('apellido_usuario'); ?>">
+								<input type="text" class="form-control" id="apellido_usuario" name="apellido_usuario"  placeholder="Digite sus apellidos" value="<?php echo set_value('apellido_usuario'); ?>">
 							</div>
 						</div>
 
 						<div class="form-row">
 							<div class="form-group col-md-4">
 								<label for="correo_usuario"><strong>Correo Electronico</strong></label>
-								<input type="text" class="form-control" id="correo_usuario" name="correo_usuario" required="" placeholder="Digite su correo" value="<?php echo set_value('correo_usuario'); ?>">
+								<input type="text" class="form-control" id="correo_usuario" name="correo_usuario"  placeholder="Digite su correo" value="<?php echo set_value('correo_usuario'); ?>">
 								<span class="help-block">example@gmail.com</span>
 							</div>
 						</div>
@@ -38,8 +48,8 @@
 			</div>
 		</div>
 
-		<?php echo form_error('usuario_login'); ?>
-		<?php echo form_error('contrasenia_login'); ?>
+		<?php //echo form_error('usuario_login'); ?>
+		<?php //echo form_error('contrasenia_login'); ?>
 
 
 
@@ -54,7 +64,7 @@
 								<label for="usuario_login"><strong>Nombre de usuario</strong></label>
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user"></i></span>
-									<input type="text" class="form-control" id="usuario_login" name="usuario_login" placeholder="Digite un nombre de usuario" required="" value="<?php echo set_value('usuario_login'); ?>">
+									<input type="text" class="form-control" id="usuario_login" name="usuario_login" placeholder="Digite un nombre de usuario"  value="<?php echo set_value('usuario_login'); ?>">
 								</div>
 							</div>
 							<div class="form-group col-md-6">
@@ -62,7 +72,7 @@
 								
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" id="contrasenia_login" name="contrasenia_login" placeholder="Digite su contraseña" required="" value="<?php echo set_value('contrasenia_login'); ?>">	
+									<input type="password" class="form-control" id="contrasenia_login" name="contrasenia_login" placeholder="Digite su contraseña"  value="<?php echo set_value('contrasenia_login'); ?>">	
 								</div>
 								
 								<span class="help-block">*Digite una contraseña de 6 caracteres minimo</span>
@@ -85,3 +95,28 @@
 
 		<button class="btn btn-info">Agregar</button>
 </form>
+
+<script>
+	$('#usuario_login').blur(function(){
+		var usuario = $('#usuario_login').val();
+		$.ajax({
+			url: '<?php echo base_url() ?>comprobar_usuario',
+			type: 'POST',
+			data: 'usuario =' + usuario,
+			cache: false,
+			dataType: 'json',
+			success: function(resultado)
+			{
+				if(resultado)
+				{
+					//$('#usuario_login').css('border-color','red');
+					alert('true');
+				}
+				else{
+					//$('#usuario_login').css('border-color','green');
+					alert('flase');
+				}
+			}
+		});
+	})
+</script>

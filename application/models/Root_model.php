@@ -9,5 +9,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	class Root_model extends CI_Model
 	{
 		
-		
+		//función para comprobar si hay usuario existente
+		public function comprobar($usuario)
+		{
+			$this->db->select('usuario_login');
+			$this->db->from('tab_login');
+			$this->db->where('usuario_login',$usuario);
+			$query = $this->db->get();
+			return $query->result();
+		}
 	}

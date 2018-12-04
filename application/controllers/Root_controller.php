@@ -64,9 +64,25 @@ class Root_controller extends CI_Controller
 				echo "<script>alert('Excelente')</script>";
 				$this->agregar_usuario();
 			}else{
+				$this->session->set_flashdata('error',validation_errors());
 				$this->agregar_usuario();
 
 			}
+		}
+	}
+
+	//función para comprobar si el usuario existe o no
+	public function comprobar_usuario()
+	{
+		$usuario = $this->input->post('usuario');
+		$result = $this->root->comprobar($usuario);
+		if($result)
+		{
+			echo json_encode(false);
+		}
+		else
+		{
+			echo json_encode(true);
 		}
 	}
 }
