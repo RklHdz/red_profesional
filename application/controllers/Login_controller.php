@@ -49,15 +49,33 @@
 		        );
 
          		$this->session->set_userdata($data);
-         		echo 1;
-         			/*if ($this->session->userdata('rol')=='ex') {
+         		
+         			switch ($this->session->userdata('rol_login')) {
+					    case "root":
 					        echo 1;
-					    }*/
+					        break;
+					    case "participante":
+					        echo 2;
+					        break;
+					    
+					}
 					      
           	}
           	
 
          	         	
+		}
+
+		public function vista_root()
+		{
+			$this->load->view('root');
+			
+		}
+
+		public function vista_participante()
+		{
+			$this->load->view('participante');
+			
 		}
 
 		// función que muestar la vista para poder recuperar la contraseña
