@@ -16,6 +16,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->from('tab_login');
 			$this->db->where('usuario_login',$usuario);
 			$query = $this->db->get();
-			return $query->result();
+
+			if($query->num_rows() > 0){
+				//si hay registros los devolvemos
+				return true;
+			}else{
+				//si no hay registros, devolvemos un false
+				return false;
+			}
 		}
 	}

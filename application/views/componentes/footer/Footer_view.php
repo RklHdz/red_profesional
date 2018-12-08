@@ -7,7 +7,7 @@
     <footer class="site-footer">
       <div class="text-center">
         <p>
-          &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
+          &copy; Copyrights <strong>Hola Mundo</strong>. All Rights Reserved
         </p>
         <div class="credits">
           <!--
@@ -26,7 +26,8 @@
     <!--footer end-->
   </section>
   <!-- js placed at the end of the document so the pages load faster -->
-  <script src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
+  
+  <script src="<?php echo base_url('assets/js/jquery-3.3.1.js') ?>"></script>
   <script src="<?php echo base_url('assets/js/bootstrap.min.js') ?>"></script>
   <script src="<?php echo base_url('assets/js/jquery-ui-1.9.2.custom.min.js') ?>"></script>
   <script src="<?php echo base_url('assets/js/jquery.ui.touch-punch.min.js') ?>"></script>
@@ -37,6 +38,7 @@
   <script src="<?php echo base_url('assets/js/common-scripts.js') ?>"></script>
   <!--script for this page-->
   
+	
 </body>
 
 </html>

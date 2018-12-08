@@ -96,27 +96,4 @@
 		<button class="btn btn-info">Agregar</button>
 </form>
 
-<script>
-	$('#usuario_login').blur(function(){
-		var usuario = $('#usuario_login').val();
-		$.ajax({
-			url: '<?php echo base_url() ?>comprobar_usuario',
-			type: 'POST',
-			data: 'usuario =' + usuario,
-			cache: false,
-			dataType: 'json',
-			success: function(resultado)
-			{
-				if(resultado)
-				{
-					//$('#usuario_login').css('border-color','red');
-					alert('true');
-				}
-				else{
-					//$('#usuario_login').css('border-color','green');
-					alert('flase');
-				}
-			}
-		});
-	})
-</script>
+

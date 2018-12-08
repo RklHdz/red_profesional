@@ -24,6 +24,7 @@ class Root_controller extends CI_Controller
 		$this->load->view('componentes/panel/Root_view');
 		$this->load->view('root/Agregar_usuario_view');//vista que se quiere mostrar
 		$this->load->view('componentes/footer/Footer_view');
+		$this->load->view('root/script');
 	}
 
 	//función que guardara los datos del usuario
@@ -76,13 +77,7 @@ class Root_controller extends CI_Controller
 	{
 		$usuario = $this->input->post('usuario');
 		$result = $this->root->comprobar($usuario);
-		if($result)
-		{
-			echo json_encode(false);
-		}
-		else
-		{
-			echo json_encode(true);
-		}
+				
+		echo json_encode($result);
 	}
 }
