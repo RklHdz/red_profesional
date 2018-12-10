@@ -14,17 +14,28 @@
 						<a href="#">
 							<i class="fa fa-dashboard"></i>
 							<span>Inicio</span>
-							</a>
+						</a>
 					</li>
 
 					<li class="sub-menu">
 						<a href="javascript:;">
 							<i class="fa fa-users"></i>
 							<span>Gestionar usuarios</span>
-							</a>
+						</a>
 						<ul class="sub">
 							<li><a href="<?php echo base_url('agregar-usuario') ?>">Agregar usuarios</a></li>
-							<li><a href="#">Ver usuarios</a></li>
+							<li><a href="<?php echo base_url('ver-participantes') ?>">Ver participantes</a></li>
+						</ul>
+					</li>
+
+					<li class="sub-menu">
+						<a href="javascript:;">
+							<i class="fa fa-graduation-cap"></i>
+							<span>Especialidades</span>
+						</a>
+						<ul class="sub">
+							<li><a href="<?php echo base_url('agregar-usuario') ?>">Java</a></li>
+							<li><a href="<?php echo base_url('ver-participantes') ?>">PHP</a></li>
 						</ul>
 					</li>
 

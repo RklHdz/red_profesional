@@ -9,12 +9,41 @@
 		<?php //echo form_error('correo_usuario'); ?>
 
 		    <?php
-		    if ($this->session->flashdata('error')){
-		        echo '<div class="alert alert-danger">';
-		        echo $this->session->flashdata('error');
-		        echo "</div>";
-		    }
+			    if ($this->session->flashdata('error'))
+			    {
+			        echo '<div class="alert alert-danger">';
+			        echo $this->session->flashdata('error');
+			        echo "</div>";
+			    }
 		    ?>
+		    <!--Si hubo un error al insertar el usuario-->
+		    <?php 
+		    	if($this->session->flashdata('error2')){?>
+		    		<script>
+		    			Swal(
+						  'Atención!',
+						  'El usuario no pudo ser agregado!',
+						  'warning'
+						)
+		    		</script>
+		    <?php } ?>
+			
+			<!--Éxito al insertar el usuario-->
+		    <?php 
+		    	if($this->session->flashdata('Exito')){?>
+		    		<script>
+		    			Swal(
+						  'Éxito!',
+						  'El usuario fue agregado!',
+						  'success'
+						);
+		    			$('#guardar').prop('disabled',true);
+		
+		    			
+		    		</script>
+		    <?php } ?>
+
+		    
 
 <!---------------------- DATOS GENERALES ------------------------>
 <form class="style-form" action="<?php echo base_url('guardar-usuario') ?>" method="post">
@@ -62,7 +91,7 @@
 									<span class="input-group-addon"><i class="fa fa-user"></i></span>
 									<input type="text" class="form-control" id="usuario_login" name="usuario_login" placeholder="Digite un nombre de usuario"  value="<?php echo set_value('usuario_login'); ?>">
 								</div>
-								<button type="button" onclick="verificar()">verificar</button>
+								<span id="msj"></span>
 							</div>
 							<div class="form-group col-md-6">
 								<label for="contrasenia_login"><strong>Contraseña</strong></label>
@@ -90,7 +119,7 @@
 			</div>
 		</div>
 
-		<button class="btn btn-info">Agregar</button>
+		<button id="guardar" type="submit" class="btn btn-info">Agregar</button>
 </form>
 
 

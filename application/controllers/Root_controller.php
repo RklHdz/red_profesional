@@ -27,6 +27,23 @@ class Root_controller extends CI_Controller
 		$this->load->view('root/script');
 	}
 
+
+	//función para ver el listado de los usuarios
+	public function ver_participante()
+	{
+		$this->load->view('componentes/header/Header_view');
+		$this->load->view('componentes/nav/Nav_view');
+		$this->load->view('componentes/panel/Root_view');
+		$this->load->view('root/Lista_participante_view');//vista que se quiere mostrar
+		$this->load->view('componentes/footer/Footer_view');
+	}
+
+	//función para ver el listado de los administrativos
+	public function ver_administrativo()
+	{
+
+	}
+
 	//función que guardara los datos del usuario
 	public function guardar_usuario()
 	{
@@ -62,9 +79,32 @@ class Root_controller extends CI_Controller
 			//verificamos que el formulario este valido
 			if($this->form_validation->run() === TRUE)
 			{
-				echo "<script>alert('Excelente')</script>";
-				$this->agregar_usuario();
-			}else{
+				/* hacemos la inserccion en la tabla tab_usuario para agregar la información del usuario
+					nombre_usuario, apellido_usuario, correo_usuario 
+				   si la insercción es exitosa, nos devolvera el id del campo insertado*/
+				   $id = $this->root->insertar_usuario($nombre_usuario,$apellido_usuario,$correo_usuario);
+
+				   /*si id trae un numero valido, hacemos la insercción en la tabla tab_login*/
+				   if($id != 0)
+				   {
+				   	   	$result = $this->root->insert_login($id,$usuario_login,$contrasenia_login,$rol_login);
+				   	   	if($result)
+				   	   	{
+				   	   		$this->session->set_flashdata('Exito','Usuario agregado');
+				   			$this->agregar_usuario();
+				   	   	}
+				   }
+				   else
+				   {
+				   		$this->session->set_flashdata('error2','Error al ingresar los datos');
+				   		$this->agregar_usuario();
+				   }
+
+
+
+			}
+			else
+			{
 				$this->session->set_flashdata('error',validation_errors());
 				$this->agregar_usuario();
 

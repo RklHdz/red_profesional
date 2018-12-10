@@ -62,6 +62,10 @@ $route['agregar-usuario'] = 'Root_controller/agregar_usuario';
 $route['guardar-usuario'] = 'Root_controller/guardar_usuario';
 $route['comprobar_usuario'] = 'Root_controller/comprobar_usuario';
 
+#ver usuarios
+$route['ver-participantes'] = 'Root_controller/ver_participante';
+$route['ver-administrativos'] = 'Root_controller/ver_administrativo';
+
 
 $route['ejemplo'] = 'Ejemplo/participante';
 
