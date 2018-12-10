@@ -48,10 +48,6 @@
 			</div>
 		</div>
 
-		<?php //echo form_error('usuario_login'); ?>
-		<?php //echo form_error('contrasenia_login'); ?>
-
-
 
 <!----------------------- DATOS DE USUARIO ----------------------------->
 		<div class="row mt">
@@ -66,13 +62,14 @@
 									<span class="input-group-addon"><i class="fa fa-user"></i></span>
 									<input type="text" class="form-control" id="usuario_login" name="usuario_login" placeholder="Digite un nombre de usuario"  value="<?php echo set_value('usuario_login'); ?>">
 								</div>
+								<button type="button" onclick="verificar()">verificar</button>
 							</div>
 							<div class="form-group col-md-6">
 								<label for="contrasenia_login"><strong>Contraseña</strong></label>
 								
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" id="contrasenia_login" name="contrasenia_login" placeholder="Digite su contraseña"  value="<?php echo set_value('contrasenia_login'); ?>">	
+									<input type="password" class="form-control" id="contrasenia_login" name="contrasenia_login" placeholder="Digite su contraseña"  value="<?php echo set_value('contrasenia_login'); ?>">
 								</div>
 								
 								<span class="help-block">*Digite una contraseña de 6 caracteres minimo</span>

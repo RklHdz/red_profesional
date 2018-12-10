@@ -77,7 +77,12 @@ class Root_controller extends CI_Controller
 	{
 		$usuario = $this->input->post('usuario');
 		$result = $this->root->comprobar($usuario);
-				
-		echo json_encode($result);
+		
+		if($result){
+			$valor = 1;//si el usuario ya existe
+		}else{
+			$valor = 0;//si el usuario no existe
+		}
+		echo json_encode($valor);
 	}
 }
