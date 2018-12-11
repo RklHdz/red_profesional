@@ -63,6 +63,11 @@
 	<!-- responsive CSS
 		============================================ -->
 	<link rel="stylesheet" href=" <?php echo base_url('assets/css/responsive.css') ?> ">
+
+	<!-- sweetaler -->
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/package/dist/sweetalert2.css">
+	<script src=" <?php echo base_url('assets/package/dist/sweetalert2.all.min.js') ?>"></script>
+
 	<!-- modernizr JS
 		============================================ -->
 	<script src=" <?php echo base_url('assets/js/vendor/modernizr-2.8.3.min.js') ?> "></script>

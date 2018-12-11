@@ -25,6 +25,16 @@
                       <?php
                         }
                         ?>
+
+                <?php if($this->session->flashdata('val')): ?>
+                  <script type="text/javascript">
+                       swal('Éxito',
+                        '<b style="color: rgb(0,159,0);"> Se ha enviado el mensaje, con la nueva contraseña.<br> Revisa tú correo.</b>',
+                        'success'
+                        )
+                       
+                  </script>
+                <?php endif; ?>
          
           <input type="text" class="form-control" placeholder="usuario" autofocus="off" autocomplete="off" name="mail">
           <br>
