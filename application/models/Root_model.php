@@ -64,11 +64,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		//función para obtener el listado de los participantes
 		public function detalle($tipo)
 		{
-			$this->db->select('u.nombre_usuario,u.apellido_usuario,l.usuario_login');
+			$this->db->select('u.id_usuario,u.nombre_usuario,u.apellido_usuario,l.usuario_login,l.rol_login');
 			$this->db->from('tab_usuario u');
 			$this->db->join('tab_login l','u.id_usuario=l.id_usuario');
-			$this->db->where('u.rol_login',$tipo);
+			$this->db->where('rol_login',$tipo);
 			$query = $this->db->get();
-			return $query;
+			if($query->num_rows() > 0){
+			//si hay registros los devolvemos
+			return $query->result();
+			//return false;
+			}else{
+				//si no hay registros devolvemos false
+				return false;
+			}
 		}
 	}//fin de la clase

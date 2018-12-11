@@ -55,7 +55,7 @@
 								<label for="usuario_login"><strong>Nombre de usuario</strong></label>
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user"></i></span>
-									<input type="text" class="form-control" id="usuario_login" name="usuario_login" placeholder="Digite un nombre de usuario">
+									<input type="text" class="form-control" id="usuario_login" name="usuario_login" placeholder="Digite un nombre de usuario" value="<?php echo set_value('usuario_login'); ?>">
 								</div>
 								<span id="msj"></span>
 							</div>
@@ -64,7 +64,7 @@
 								
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" id="contrasenia_login" name="contrasenia_login" placeholder="Digite su contraseña"  value="<?php echo set_value('contrasenia_login'); ?>">
+									<input type="password" class="form-control" id="contrasenia_login" name="contrasenia_login" placeholder="Digite su contraseña" >
 								</div>
 								
 								<span class="help-block">*Digite una contraseña de 6 caracteres minimo</span>

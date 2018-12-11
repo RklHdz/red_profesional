@@ -25,6 +25,7 @@
 						<ul class="sub">
 							<li><a href="<?php echo base_url('agregar-usuario') ?>">Agregar usuarios</a></li>
 							<li><a href="<?php echo base_url('ver-participantes') ?>">Ver participantes</a></li>
+							<li><a href="<?php echo base_url('ver-administrativos') ?>">Ver administrativos</a></li>
 						</ul>
 					</li>
 

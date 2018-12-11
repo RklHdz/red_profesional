@@ -24,7 +24,7 @@ class Root_controller extends CI_Controller
 		$this->load->view('componentes/panel/Root_view');
 		$this->load->view('root/Agregar_usuario_view');//vista que se quiere mostrar
 		$this->load->view('componentes/footer/Footer_view');
-		$this->load->view('root/script');
+		$this->load->view('root/script/script_root');
 	}
 
 
@@ -35,18 +35,31 @@ class Root_controller extends CI_Controller
 
 		$datos['detalle'] = $this->root->detalle('participante');
 
+		$datos['msj'] = 'participantes';
 
 		$this->load->view('componentes/header/Header_view');
 		$this->load->view('componentes/nav/Nav_view');
 		$this->load->view('componentes/panel/Root_view');
-		$this->load->view('root/Lista_participante_view');//vista que se quiere mostrar
+		$this->load->view('root/Listado_view',$datos);//vista que se quiere mostrar
 		$this->load->view('componentes/footer/Footer_view');
+		$this->load->view('root/script/script_listas');
 	}
 
 	//función para ver el listado de los administrativos
 	public function ver_administrativo()
 	{
+		#vamos a traer los datos de los participantes
 
+		$datos['detalle'] = $this->root->detalle('administrativo');
+
+		$datos['msj'] = 'administrativos';
+
+		$this->load->view('componentes/header/Header_view');
+		$this->load->view('componentes/nav/Nav_view');
+		$this->load->view('componentes/panel/Root_view');
+		$this->load->view('root/Listado_view',$datos);//vista que se quiere mostrar
+		$this->load->view('componentes/footer/Footer_view');
+		$this->load->view('root/script/script_listas');
 	}
 
 	//función que guardara los datos del usuario
@@ -121,13 +134,15 @@ class Root_controller extends CI_Controller
 				   	   	if($result)
 				   	   	{
 				   	   		$this->session->set_flashdata('Exito','Usuario agregado');
-				   			$this->agregar_usuario();
+				   			//$this->agregar_usuario();
+				   			redirect(base_url('agregar-usuario'));
 				   	   	}
 				   }
 				   else
 				   {
 				   		$this->session->set_flashdata('error2','Error al ingresar los datos');
-				   		$this->agregar_usuario();
+				   		//$this->agregar_usuario();
+				   		redirect(base_url('agregar-usuario'));
 				   }
 
 
