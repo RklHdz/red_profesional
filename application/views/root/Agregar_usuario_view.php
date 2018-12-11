@@ -36,49 +36,15 @@
 						  'Éxito!',
 						  'El usuario fue agregado!',
 						  'success'
-						);
-		    			$('#guardar').prop('disabled',true);
-		
-		    			
+						);		    			
 		    		</script>
 		    <?php } ?>
 
 		    
 
-<!---------------------- DATOS GENERALES ------------------------>
 <form class="style-form" action="<?php echo base_url('guardar-usuario') ?>" method="post">
-		<div class="row mt">
-			<div class="col-md-12">	
-				<div class="panel panel-primary">
-					<div class="panel-heading">Datos generales</div>
-					<div class="panel-body">
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="nombre_usuario"><strong>Nombres</strong></label>
-								<input type="text" class="form-control" id="nombre_usuario"  name="nombre_usuario" placeholder="Digite sus nombres" value="<?php echo set_value('nombre_usuario'); ?>" >
-								
-								
-							</div>
-							<div class="form-group col-md-6">
-								<label for="apellido_usuario"><strong>Apellidos</strong></label>
-								<input type="text" class="form-control" id="apellido_usuario" name="apellido_usuario"  placeholder="Digite sus apellidos" value="<?php echo set_value('apellido_usuario'); ?>">
-							</div>
-						</div>
 
-						<div class="form-row">
-							<div class="form-group col-md-4">
-								<label for="correo_usuario"><strong>Correo Electronico</strong></label>
-								<input type="text" class="form-control" id="correo_usuario" name="correo_usuario"  placeholder="Digite su correo" value="<?php echo set_value('correo_usuario'); ?>">
-								<span class="help-block">example@gmail.com</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-<!----------------------- DATOS DE USUARIO ----------------------------->
+	<!----------------------- DATOS DE USUARIO ----------------------------->
 		<div class="row mt">
 			<div class="col-md-12">	
 				<div class="panel panel-primary">
@@ -89,7 +55,7 @@
 								<label for="usuario_login"><strong>Nombre de usuario</strong></label>
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user"></i></span>
-									<input type="text" class="form-control" id="usuario_login" name="usuario_login" placeholder="Digite un nombre de usuario"  value="<?php echo set_value('usuario_login'); ?>">
+									<input type="text" class="form-control" id="usuario_login" name="usuario_login" placeholder="Digite un nombre de usuario">
 								</div>
 								<span id="msj"></span>
 							</div>
@@ -118,6 +84,51 @@
 				</div>
 			</div>
 		</div>
+
+
+	<!---------------------- DATOS GENERALES ------------------------>
+
+		<div class="row mt">
+			<div class="col-md-12">	
+				<div class="panel panel-primary">
+					<div class="panel-heading">Datos generales</div>
+					<div class="panel-body">
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="nombre_usuario"><strong>Nombres</strong></label>
+								<input type="text" class="form-control" id="nombre_usuario"  name="nombre_usuario" placeholder="Digite sus nombres" value="<?php echo set_value('nombre_usuario'); ?>" >
+								
+								
+							</div>
+							<div class="form-group col-md-6">
+								<label for="apellido_usuario"><strong>Apellidos</strong></label>
+								<input type="text" class="form-control" id="apellido_usuario" name="apellido_usuario"  placeholder="Digite sus apellidos" value="<?php echo set_value('apellido_usuario'); ?>">
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="form-group col-md-3">
+								<label for="correo_usuario"><strong>Correo Electronico</strong></label>
+								<input type="text" class="form-control" id="correo_usuario" name="correo_usuario"  placeholder="Digite su correo" value="<?php echo set_value('correo_usuario'); ?>">
+								<span class="help-block">example@gmail.com</span>
+							</div>
+							<div id="p_especialidad" class="form-group col-md-3">
+								
+							</div>
+							<div id="p_grupo" class="form-group col-md-3">
+								
+							</div>
+							<div id="p_nivel" class="form-group col-md-3">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
 
 		<button id="guardar" type="submit" class="btn btn-info">Agregar</button>
 </form>

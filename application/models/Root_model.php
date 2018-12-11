@@ -20,12 +20,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $query->result();
 		}
 
-		//función para insertar los datos del usuario
+		//función para insertar los datos del usuario administrativo
 		public function insertar_usuario($nombre_usuario,$apellido_usuario,$correo_usuario)
 		{
 			$this->db->set('nombre_usuario', $nombre_usuario);
 			$this->db->set('apellido_usuario', $apellido_usuario);
 			$this->db->set('correo_usuario', $correo_usuario);
+			$this->db->insert('tab_usuario');
+			return $this->db->insert_id();
+		}
+
+		//función para insertar los datos del usuario participante
+		public function insertar_usuarioP($nombre_usuario,$apellido_usuario,$correo_usuario,$nivel_usuario,$grupo_usuario,$especialidad_usuario)
+		{
+			$this->db->set('nombre_usuario', $nombre_usuario);
+			$this->db->set('apellido_usuario', $apellido_usuario);
+			$this->db->set('correo_usuario', $correo_usuario);
+			$this->db->set('especialidad_usuario', $especialidad_usuario);
+			$this->db->set('grupo_usuario', $grupo_usuario);
+			$this->db->set('nivel_usuario', $nivel_usuario);
 			$this->db->insert('tab_usuario');
 			return $this->db->insert_id();
 		}
@@ -47,4 +60,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				return false;
 			}
 		}
-	}
+
+		//función para obtener el listado de los participantes
+		public function detalle($tipo)
+		{
+			$this->db->select('u.nombre_usuario,u.apellido_usuario,l.usuario_login');
+			$this->db->from('tab_usuario u');
+			$this->db->join('tab_login l','u.id_usuario=l.id_usuario');
+			$this->db->where('u.rol_login',$tipo);
+			$query = $this->db->get();
+			return $query;
+		}
+	}//fin de la clase

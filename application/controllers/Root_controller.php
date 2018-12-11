@@ -31,6 +31,11 @@ class Root_controller extends CI_Controller
 	//función para ver el listado de los usuarios
 	public function ver_participante()
 	{
+		#vamos a traer los datos de los participantes
+
+		$datos['detalle'] = $this->root->detalle('participante');
+
+
 		$this->load->view('componentes/header/Header_view');
 		$this->load->view('componentes/nav/Nav_view');
 		$this->load->view('componentes/panel/Root_view');
@@ -76,13 +81,38 @@ class Root_controller extends CI_Controller
 			$this->form_validation->set_message('valid_email', 'Digite un correo electronico valido');
 			$this->form_validation->set_message('min_length', 'La contraseña no debe de ser menor a 6 caracteres');
 
+
+			//verificamos si el select tipo de usuario es participante
+			if($rol_login === 'participante')
+			{
+				//capturamos los campos nivel, grupo y especialidad
+				$nivel_usuario = $this->input->post('nivel_usuario');
+				$grupo_usuario = $this->input->post('grupo_usuario');
+				$especialidad_usuario = $this->input->post('especialidad_usuario');
+
+				//creamos las reglas para los campos nivel, grupo y especialidad
+				$this->form_validation->set_rules('nivel_usuario','Nivel','trim|required');
+				$this->form_validation->set_rules('grupo_usuario','Grupo','trim|required');
+				$this->form_validation->set_rules('especialidad_usuario','Especialidad','trim|required');
+
+
+			}
+
 			//verificamos que el formulario este valido
 			if($this->form_validation->run() === TRUE)
 			{
 				/* hacemos la inserccion en la tabla tab_usuario para agregar la información del usuario
 					nombre_usuario, apellido_usuario, correo_usuario 
 				   si la insercción es exitosa, nos devolvera el id del campo insertado*/
-				   $id = $this->root->insertar_usuario($nombre_usuario,$apellido_usuario,$correo_usuario);
+
+				   if($rol_login === 'participante')
+				   {
+				   		$id = $this->root->insertar_usuarioP($nombre_usuario,$apellido_usuario,$correo_usuario,$nivel_usuario,$grupo_usuario,$especialidad_usuario);
+				   }
+				   else
+				   {
+				   		$id = $this->root->insertar_usuario($nombre_usuario,$apellido_usuario,$correo_usuario);
+				   }
 
 				   /*si id trae un numero valido, hacemos la insercción en la tabla tab_login*/
 				   if($id != 0)

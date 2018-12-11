@@ -1,7 +1,30 @@
 <script>
 	$(document).ready(function(){
 
-		
+		$('#guardar').prop('disabled',true);
+
+		//si esta seleccionado participante
+		$('#rol_login').change(function(){
+			var rol = $(this).val();
+			//verificamos si el valor es participante
+			if(rol=='participante')
+			{
+				$('#p_especialidad').append('<label id="t_especialidad">Especialidad</label><input type="text" class="form-control" id="especialidad_usuario" name="especialidad_usuario"  placeholder="Digite su especialidad" value="<?php echo set_value('especialidad_usuario'); ?>">');
+				$('#p_grupo').append('<label id="t_grupo">Grupo</label><input type="text" class="form-control" id="grupo_usuario" name="grupo_usuario"  placeholder="Digite su grupo" value="<?php echo set_value('grupo_usuario'); ?>">');
+				$('#p_nivel').append('<label id="t_nivel">Nivel</label><input type="text" class="form-control" id="nivel_usuario" name="nivel_usuario"  placeholder="Digite su nivel" value="<?php echo set_value('nivel_usuario'); ?>">');
+			}
+			else
+			{
+				$('#t_especialidad').remove();
+				$('#especialidad_usuario').remove();
+
+				$('#t_grupo').remove();
+				$('#grupo_usuario').remove();
+
+				$('#t_nivel').remove();
+				$('#nivel_usuario').remove();
+			}
+		});
 
 		//creamos la función keydown
 		$('#usuario_login').keyup(function(){
