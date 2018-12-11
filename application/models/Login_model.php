@@ -34,6 +34,19 @@
             $this->db->where('id_usuario', $data['id']);
             $this->db->update('tab_login');
 		}
+
+		public function validar_credenciales($usuario, $password)
+		{	
+			$this->db->where('usuario_login="'.$usuario.'" and contrasenia_login="'.$password.'"');
+			$resultado=$this->db->get('tab_login'); 
+    			if ($resultado->num_rows()>0) {
+					return $resultado->row();
+				}else{
+					return false;
+				}
+
+		}
+
 	}
 
 
