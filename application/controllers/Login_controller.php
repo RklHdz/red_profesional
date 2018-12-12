@@ -40,7 +40,7 @@
 		{	//recuperamos datos del formulario
 			$usuario = $this->input->post('username');
 			$password = $this->input->post('password');
-			$resultado=$this->Login->validar_credenciales($usuario,$password); 
+			$resultado=$this->Login_model->validar_credenciales($usuario,$password); 
 			if (!$resultado){	
 				 echo 0;
          	}else{	
