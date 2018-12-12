@@ -170,4 +170,15 @@ class Root_controller extends CI_Controller
 		}
 		echo json_encode($valor);
 	}
+
+	//función para editar los datos del usuario
+	public function editar_usuario()
+	{
+		$id = $this->input->post('id');
+		$rol = $this->input->post('rol');
+
+		$data = $this->root->editar_usuario($id,$rol);
+
+		echo json_encode($data);
+	}
 }

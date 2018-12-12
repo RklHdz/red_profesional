@@ -110,7 +110,7 @@
 							<div class="form-group col-md-3">
 								<label for="correo_usuario"><strong>Correo Electronico</strong></label>
 								<input type="text" class="form-control" id="correo_usuario" name="correo_usuario"  placeholder="Digite su correo" value="<?php echo set_value('correo_usuario'); ?>">
-								<span class="help-block">example@gmail.com</span>
+								<span class="help-block">tucorreo@ejemplo.com</span>
 							</div>
 							<div id="p_especialidad" class="form-group col-md-3">
 								

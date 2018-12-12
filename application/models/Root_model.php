@@ -78,4 +78,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				return false;
 			}
 		}
+
+		//función para obtener los datos de un usuario y poder editarlos
+		public function editar_usuario($id,$rol)
+		{
+			switch ($rol) {
+				case 'participante':
+					$this->db->select('nombre_usuario,apellido_usuario,correo_usuario,especialidad_usuario,grupo_usuario,nivel_usuario');
+					$this->db->from('tab_usuario');
+					$this->db->where('id_usuario',$id);
+					$query = $this->db->get();
+					if($query->num_rows() > 0){
+					//si hay registros los devolvemos
+					return $query->result();
+					//return false;
+					}else{
+						//si no hay registros devolvemos false
+						return false;
+					}
+				break;
+				
+				case 'administrativo':
+					# code...
+					break;
+			}
+			
+		}
 	}//fin de la clase
