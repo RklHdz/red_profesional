@@ -55,7 +55,7 @@
 								<label for="usuario_login"><strong>Nombre de usuario</strong></label>
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user"></i></span>
-									<input type="text" class="form-control" id="usuario_login" name="usuario_login" placeholder="Digite un nombre de usuario" value="<?php echo set_value('usuario_login'); ?>">
+									<input type="text" class="form-control" id="usuario_login" name="usuario_login" placeholder="Digite un nombre de usuario" >
 								</div>
 								<span id="msj"></span>
 							</div>

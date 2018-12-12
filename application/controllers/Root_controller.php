@@ -33,7 +33,7 @@ class Root_controller extends CI_Controller
 	{
 		#vamos a traer los datos de los participantes
 
-		$datos['detalle'] = $this->root->detalle('participante');
+		$datos['detalle'] = $this->root->detalle('activo');
 
 		$datos['msj'] = 'participantes';
 
@@ -93,6 +93,7 @@ class Root_controller extends CI_Controller
 			$this->form_validation->set_message('required', 'El campo %s es obligatorio, favor llenarlo');
 			$this->form_validation->set_message('valid_email', 'Digite un correo electronico valido');
 			$this->form_validation->set_message('min_length', 'La contraseña no debe de ser menor a 6 caracteres');
+			$this->form_validation->set_message('numeric','El campo %s debe de ser un número entero');
 
 
 			//verificamos si el select tipo de usuario es participante
@@ -104,9 +105,9 @@ class Root_controller extends CI_Controller
 				$especialidad_usuario = $this->input->post('especialidad_usuario');
 
 				//creamos las reglas para los campos nivel, grupo y especialidad
-				$this->form_validation->set_rules('nivel_usuario','Nivel','trim|required');
-				$this->form_validation->set_rules('grupo_usuario','Grupo','trim|required');
-				$this->form_validation->set_rules('especialidad_usuario','Especialidad','trim|required');
+				$this->form_validation->set_rules('nivel_usuario','Nivel','trim|required|numeric');
+				$this->form_validation->set_rules('grupo_usuario','Grupo','trim|required|numeric');
+				//$this->form_validation->set_rules('especialidad_usuario','Especialidad','trim|required');
 
 
 			}
@@ -144,9 +145,6 @@ class Root_controller extends CI_Controller
 				   		//$this->agregar_usuario();
 				   		redirect(base_url('agregar-usuario'));
 				   }
-
-
-
 			}
 			else
 			{
@@ -181,4 +179,57 @@ class Root_controller extends CI_Controller
 
 		echo json_encode($data);
 	}
+
+	//función para actualizar los datos del usuario
+	public function actualizar_participante()
+	{
+		//datos para la tabla usuario
+		$id = $this->input->post('id');
+		$e_nombre = $this->input->post('edit_nombre_usuario');
+		$e_apellido = $this->input->post('edit_apellido_usuario');
+		$e_correo = $this->input->post('edit_correo_usuario');
+		$e_especialidad = $this->input->post('edit_especialidad_usuario');
+		$e_grupo = $this->input->post('edit_grupo_usuario');
+		$e_nivel = $this->input->post('edit_nivel_usuario');
+		$estado = $this->input->post('estado');
+
+		//creamos las reglas de validación con set_rules
+		$this->form_validation->set_rules('edit_nombre_usuario','Nombres','trim|required');
+		$this->form_validation->set_rules('edit_apellido_usuario','Apellidos','trim|required');
+		$this->form_validation->set_rules('edit_correo_usuario','Correo Electronico','trim|required|valid_email');
+		$this->form_validation->set_rules('edit_nivel_usuario','Nivel','trim|required|numeric');
+		$this->form_validation->set_rules('edit_grupo_usuario','Grupo','trim|required|numeric');
+		
+
+		//mensajes personalizados
+		$this->form_validation->set_message('required', 'El campo %s es obligatorio, favor llenarlo');
+		$this->form_validation->set_message('valid_email', 'Digite un correo electronico valido');
+		$this->form_validation->set_message('numeric','El campo %s debe de ser un número entero');
+
+		//verificamos que el formulario este valido
+		if($this->form_validation->run() === TRUE)
+		{
+			$respuesta = $this->root->actualizar_participante($id,$e_nombre,$e_apellido,$e_correo,$e_especialidad,$e_grupo,$e_nivel,$estado);
+			if($respuesta)
+			{
+				//si se hizo la actualización 
+				$this->session->set_flashdata('Exito1','Usuario actualizado');
+				redirect(base_url('ver-participantes'));
+			}
+			else
+			{
+				//si no se hizo la actualización
+				$this->session->set_flashdata('Error1','Usuario no actualizado');
+				redirect(base_url('ver-participantes'));
+			}
+		}
+		else
+		{
+			$this->session->set_flashdata('error1',validation_errors());
+			$this->ver_participante();
+
+		}
+	}
+
+
 }

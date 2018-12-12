@@ -9,9 +9,9 @@
 			//verificamos si el valor es participante
 			if(rol=='participante')
 			{
-				$('#p_especialidad').append('<label id="t_especialidad">Especialidad</label><input type="text" class="form-control" id="especialidad_usuario" name="especialidad_usuario"  placeholder="Digite su especialidad" value="<?php echo set_value('especialidad_usuario'); ?>">');
-				$('#p_grupo').append('<label id="t_grupo">Grupo</label><input type="text" class="form-control" id="grupo_usuario" name="grupo_usuario"  placeholder="Digite su grupo" value="<?php echo set_value('grupo_usuario'); ?>">');
-				$('#p_nivel').append('<label id="t_nivel">Nivel</label><input type="text" class="form-control" id="nivel_usuario" name="nivel_usuario"  placeholder="Digite su nivel" value="<?php echo set_value('nivel_usuario'); ?>">');
+				$('#p_especialidad').append('<label id="t_especialidad">Especialidad</label><select class="form-control" name="especialidad_usuario" id="especialidad_usuario"><option value="JAVA">JAVA</option><option value="PHP">PHP</option></select>');
+				$('#p_grupo').append('<label id="t_grupo">Grupo</label><input type="text" class="form-control" id="grupo_usuario" name="grupo_usuario"  placeholder="Digite su grupo" >');
+				$('#p_nivel').append('<label id="t_nivel">Nivel</label><input type="text" class="form-control" id="nivel_usuario" name="nivel_usuario"  placeholder="Digite su nivel" >');
 			}
 			else
 			{

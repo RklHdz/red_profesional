@@ -22,6 +22,7 @@
 					success: function(data){
 						if(data)
 						{
+							$('#id').val(id);
 							$('#edit_nombre_usuario').val(data[0].nombre_usuario);
 							$('#edit_apellido_usuario').val(data[0].apellido_usuario);
 							$('#edit_correo_usuario').val(data[0].correo_usuario);
@@ -39,6 +40,8 @@
 			case 'administrativo':
 				//vamos a abrir el modal para editar administrativo
 				$('#editar_administrativo').modal();
+			break;
+			case 'ex_participante':
 			break;
 		}
 	}

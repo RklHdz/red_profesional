@@ -39,6 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->set('especialidad_usuario', $especialidad_usuario);
 			$this->db->set('grupo_usuario', $grupo_usuario);
 			$this->db->set('nivel_usuario', $nivel_usuario);
+			$this->db->set('estado_usuario','activo');
 			$this->db->insert('tab_usuario');
 			return $this->db->insert_id();
 		}
@@ -62,12 +63,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		//función para obtener el listado de los participantes
-		public function detalle($tipo)
+		public function detalle($estado)
 		{
 			$this->db->select('u.id_usuario,u.nombre_usuario,u.apellido_usuario,l.usuario_login,l.rol_login');
 			$this->db->from('tab_usuario u');
 			$this->db->join('tab_login l','u.id_usuario=l.id_usuario');
-			$this->db->where('rol_login',$tipo);
+			$this->db->where('estado_usuario',$estado);
 			$query = $this->db->get();
 			if($query->num_rows() > 0){
 			//si hay registros los devolvemos
@@ -101,7 +102,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				case 'administrativo':
 					# code...
 					break;
+			}	
+		}
+
+		//función para actualizar el usuario
+		public function actualizar_participante($id,$e_nombre,$e_apellido,$e_correo,$e_especialidad,$e_grupo,$e_nivel,$estado)
+		{
+			$this->db->set('nombre_usuario',$e_nombre);
+			$this->db->set('apellido_usuario',$e_apellido);
+			$this->db->set('correo_usuario',$e_correo);
+			$this->db->set('especialidad_usuario',$e_especialidad);
+			$this->db->set('grupo_usuario',$e_grupo);
+			$this->db->set('nivel_usuario',$e_nivel);
+			$this->db->set('estado_usuario',$estado);
+			$this->db->where('id_usuario',$id);
+			$this->db->update('tab_usuario');
+			if($this->db->affected_rows() > 0)
+			{
+				return true;
 			}
-			
+			else
+			{
+				return false;
+			}
 		}
 	}//fin de la clase
