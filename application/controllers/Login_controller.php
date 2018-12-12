@@ -60,6 +60,9 @@
 					    case "participante":
 					        echo 2;
 					        break;
+					    case "administrativo":
+					        echo 3;
+					        break;
 					    
 					}
 					      

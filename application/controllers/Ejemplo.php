@@ -28,4 +28,14 @@ class Ejemplo extends CI_Controller {
 		$this->load->view('componentes/footer/Footer_view');
 
 	}
+
+	public function root()
+	{
+		/*invocación para root*/
+		$this->load->view('componentes/header/Header_view');
+		$this->load->view('componentes/nav/Nav_view');
+		$this->load->view('componentes/panel/Root_view');
+		$this->load->view('ejemplo');//vista que se quiere mostrar
+		$this->load->view('componentes/footer/Footer_view');
+	}
 }
