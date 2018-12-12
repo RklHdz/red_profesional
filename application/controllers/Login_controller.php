@@ -15,7 +15,7 @@
 			$this->load->model('Login_model');
 			$this->load->model('Usuario_model');
 			$this->load->library("email");
-			
+		
 		}
 
 		public function index()
@@ -125,7 +125,7 @@
 										 'newline' => "\r\n"
 										 ); 
 					//envio del correo 
-					 $this->email->initialize($configGmail);
+					$this->email->initialize($configGmail);
 					$this->email->from('red.profesional08@gmail.com'); //el correo de donde lo envian
 					$this->email->to($datos->correo_usuario);// el correo de destino
 					$cid = $this->email->attachment_cid($filename);
