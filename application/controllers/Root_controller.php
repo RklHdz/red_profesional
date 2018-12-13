@@ -33,7 +33,7 @@ class Root_controller extends CI_Controller
 	{
 		#vamos a traer los datos de los participantes
 
-		$datos['detalle'] = $this->root->detalle('activo');
+		$datos['detalle'] = $this->root->detalle('participante');
 
 		$datos['msj'] = 'participantes';
 
@@ -68,21 +68,21 @@ class Root_controller extends CI_Controller
 		if($this->input->post())
 		{
 			//datos para la tabla tab_usuario
-			$nombre_usuario = $this->input->post('nombre_usuario');
-			$apellido_usuario = $this->input->post('apellido_usuario');
-			$correo_usuario = $this->input->post('correo_usuario');
+			$nombre_usuario = trim($this->input->post('nombre_usuario'));
+			$apellido_usuario = trim($this->input->post('apellido_usuario'));
+			$correo_usuario = trim($this->input->post('correo_usuario'));
 
 			//datos para la tabla tab_login
-			$usuario_login = $this->input->post('usuario_login');
-			$contrasenia_login = $this->input->post('contrasenia_login');
-			$rol_login = $this->input->post('rol_login');
+			$usuario_login = trim($this->input->post('usuario_login'));
+			$contrasenia_login = trim($this->input->post('contrasenia_login'));
+			$rol_login = trim($this->input->post('rol_login'));
 
 			//creamos las reglas de validación con set_rules, el cual recibe tres parametros
 			//el primero es el nombre del campo a validar
 			//el segundo es el valor que se le mostrará al usuario cuando haya un error
 			//el tercero es la regla en si
-			$this->form_validation->set_rules('nombre_usuario','Nombres','trim|required');
-			$this->form_validation->set_rules('apellido_usuario','Apellidos','trim|required');
+			$this->form_validation->set_rules('nombre_usuario','Nombres','trim|required|alpha');
+			$this->form_validation->set_rules('apellido_usuario','Apellidos','trim|required|alpha');
 			$this->form_validation->set_rules('correo_usuario','Correo Electronico','trim|required|valid_email');
 
 			$this->form_validation->set_rules('usuario_login','Nombre de usuario','trim|required');
@@ -94,22 +94,31 @@ class Root_controller extends CI_Controller
 			$this->form_validation->set_message('valid_email', 'Digite un correo electronico valido');
 			$this->form_validation->set_message('min_length', 'La contraseña no debe de ser menor a 6 caracteres');
 			$this->form_validation->set_message('numeric','El campo %s debe de ser un número entero');
+			$this->form_validation->set_message('alpha','El campo %s debe de contener solo letras');
 
 
 			//verificamos si el select tipo de usuario es participante
 			if($rol_login === 'participante')
 			{
 				//capturamos los campos nivel, grupo y especialidad
-				$nivel_usuario = $this->input->post('nivel_usuario');
-				$grupo_usuario = $this->input->post('grupo_usuario');
-				$especialidad_usuario = $this->input->post('especialidad_usuario');
+				$nivel_usuario = trim($this->input->post('nivel_usuario'));
+				$grupo_usuario = trim($this->input->post('grupo_usuario'));
+				$especialidad_usuario = trim($this->input->post('especialidad_usuario'));
 
 				//creamos las reglas para los campos nivel, grupo y especialidad
-				$this->form_validation->set_rules('nivel_usuario','Nivel','trim|required|numeric');
-				$this->form_validation->set_rules('grupo_usuario','Grupo','trim|required|numeric');
-				//$this->form_validation->set_rules('especialidad_usuario','Especialidad','trim|required');
+				$this->form_validation->set_rules('nivel_usuario','Nivel','trim|required|numeric|is_natural_no_zero');
+				$this->form_validation->set_rules('grupo_usuario','Grupo','trim|required|numeric|is_natural_no_zero');
+				
+				//creamos el mensaje personalizado
+				$this->form_validation->set_message('is_natural_no_zero','El campo %s debe contener numeros positivos mayores que cero');
+			}
+			else
+			{
+				// si es administrativo, capturamos el valor del campo cargo_usuario
+				$cargo_usuario = $this->input->post('cargo_usuario');
 
-
+				//creamos la regla
+				$this->form_validation->set_rules('cargo_usuario','Cargo administrativo','trim|required');
 			}
 
 			//verificamos que el formulario este valido
@@ -121,17 +130,17 @@ class Root_controller extends CI_Controller
 
 				   if($rol_login === 'participante')
 				   {
-				   		$id = $this->root->insertar_usuarioP($nombre_usuario,$apellido_usuario,$correo_usuario,$nivel_usuario,$grupo_usuario,$especialidad_usuario);
+				   		$id = $this->root->insertar_usuarioP(strip_tags($nombre_usuario),strip_tags($apellido_usuario),strip_tags($correo_usuario),strip_tags($nivel_usuario),strip_tags($grupo_usuario),strip_tags($especialidad_usuario));
 				   }
 				   else
 				   {
-				   		$id = $this->root->insertar_usuario($nombre_usuario,$apellido_usuario,$correo_usuario);
+				   		$id = $this->root->insertar_usuario(strip_tags($nombre_usuario),strip_tags($apellido_usuario),strip_tags($correo_usuario),strip_tags($cargo_usuario));
 				   }
 
 				   /*si id trae un numero valido, hacemos la insercción en la tabla tab_login*/
 				   if($id != 0)
 				   {
-				   	   	$result = $this->root->insert_login($id,$usuario_login,$contrasenia_login,$rol_login);
+				   	   	$result = $this->root->insert_login($id,strip_tags($usuario_login),strip_tags($contrasenia_login),strip_tags($rol_login));
 				   	   	if($result)
 				   	   	{
 				   	   		$this->session->set_flashdata('Exito','Usuario agregado');
@@ -184,14 +193,14 @@ class Root_controller extends CI_Controller
 	public function actualizar_participante()
 	{
 		//datos para la tabla usuario
-		$id = $this->input->post('id');
-		$e_nombre = $this->input->post('edit_nombre_usuario');
-		$e_apellido = $this->input->post('edit_apellido_usuario');
-		$e_correo = $this->input->post('edit_correo_usuario');
-		$e_especialidad = $this->input->post('edit_especialidad_usuario');
-		$e_grupo = $this->input->post('edit_grupo_usuario');
-		$e_nivel = $this->input->post('edit_nivel_usuario');
-		$estado = $this->input->post('estado');
+		$id = trim($this->input->post('id'));
+		$e_nombre = trim($this->input->post('edit_nombre_usuario'));
+		$e_apellido = trim($this->input->post('edit_apellido_usuario'));
+		$e_correo = trim($this->input->post('edit_correo_usuario'));
+		$e_especialidad = trim($this->input->post('edit_especialidad_usuario'));
+		$e_grupo = trim($this->input->post('edit_grupo_usuario'));
+		$e_nivel = trim($this->input->post('edit_nivel_usuario'));
+		$estado = trim($this->input->post('estado'));
 
 		//creamos las reglas de validación con set_rules
 		$this->form_validation->set_rules('edit_nombre_usuario','Nombres','trim|required');
@@ -209,7 +218,7 @@ class Root_controller extends CI_Controller
 		//verificamos que el formulario este valido
 		if($this->form_validation->run() === TRUE)
 		{
-			$respuesta = $this->root->actualizar_participante($id,$e_nombre,$e_apellido,$e_correo,$e_especialidad,$e_grupo,$e_nivel,$estado);
+			$respuesta = $this->root->actualizar_participante($id,strip_tags($e_nombre),strip_tags($e_apellido),strip_tags($e_correo),strip_tags($e_especialidad),strip_tags($e_grupo),strip_tags($e_nivel),strip_tags($estado));
 			if($respuesta)
 			{
 				//si se hizo la actualización 
@@ -231,6 +240,51 @@ class Root_controller extends CI_Controller
 		}
 	}
 
+
+	//función para actualizar administrativo
+	public function actualizar_administrativo()
+	{
+		$id_adm = trim($this->input->post('id_adm'));
+		$nombre_adm = trim($this->input->post('edit_nombre_administrativo'));
+		$apellido_adm = trim($this->input->post('edit_apellido_administrativo'));
+		$correo_adm = trim($this->input->post('edit_correo_administrativo'));
+		$cargo_adm = trim($this->input->post('edit_cargo_administrativo'));
+
+		//Creamos las reglas
+		$this->form_validation->set_rules('edit_nombre_administrativo','Nombres','trim|required');
+		$this->form_validation->set_rules('edit_apellido_administrativo','Apellidos','trim|required');
+		$this->form_validation->set_rules('edit_correo_administrativo','Correo Electronico','trim|required|valid_email');
+		$this->form_validation->set_rules('edit_cargo_administrativo','Cargo administrativo','trim|required');
+
+		//mensajes personalizados
+		$this->form_validation->set_message('required', 'El campo %s es obligatorio, favor llenarlo');
+		$this->form_validation->set_message('valid_email', 'Digite un correo electronico valido');
+
+		//verificamos que el formulario este valido
+		if($this->form_validation->run() === TRUE)
+		{
+			$respuesta = $this->root->actualizar_administrativo($id_adm,strip_tags($nombre_adm),strip_tags($apellido_adm),strip_tags($correo_adm),strip_tags($cargo_adm));
+			if($respuesta)
+			{
+				//si se hizo la actualización 
+				$this->session->set_flashdata('Exito3','Administrativo actualizado');
+				redirect(base_url('ver-administrativos'));
+			}
+			else
+			{
+				//si no se hizo la actualización
+				$this->session->set_flashdata('Error3','Administrativo no actualizado');
+				redirect(base_url('ver-administrativos'));
+			}
+		}
+		else
+		{
+			$this->session->set_flashdata('error3',validation_errors());
+			$this->ver_administrativo();
+
+		}		
+	}
+
 	//función para eliminar participante
 	public function eliminar_participante()
 	{
@@ -241,6 +295,8 @@ class Root_controller extends CI_Controller
 			$result1 = $this->root->eliminar_login();
 		}
 	}
+
+
 
 
 }

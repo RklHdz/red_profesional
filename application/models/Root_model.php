@@ -63,20 +63,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		//función para obtener el listado de los participantes
-		public function detalle($estado)
+		public function detalle($tipo)
 		{
-			$this->db->select('u.id_usuario,u.nombre_usuario,u.apellido_usuario,l.usuario_login,l.rol_login');
-			$this->db->from('tab_usuario u');
-			$this->db->join('tab_login l','u.id_usuario=l.id_usuario');
-			$this->db->where('estado_usuario',$estado);
-			$query = $this->db->get();
-			if($query->num_rows() > 0){
-			//si hay registros los devolvemos
-			return $query->result();
-			//return false;
-			}else{
-				//si no hay registros devolvemos false
-				return false;
+			switch ($tipo) {
+				case 'participante':
+					$this->db->select('u.id_usuario,u.nombre_usuario,u.apellido_usuario,l.usuario_login,l.rol_login');
+					$this->db->from('tab_usuario u');
+					$this->db->join('tab_login l','u.id_usuario=l.id_usuario');
+					$this->db->where('estado_usuario','activo');
+					$query = $this->db->get();
+					if($query->num_rows() > 0)
+					{
+						//si hay registros los devolvemos
+						return $query->result();
+						//return false;
+					}
+					else
+					{
+						//si no hay registros devolvemos false
+						return false;
+					}
+				break;
+								
+				case 'administrativo':
+					$this->db->select('u.id_usuario,u.nombre_usuario,u.apellido_usuario,l.usuario_login,l.rol_login');
+					$this->db->from('tab_usuario u');
+					$this->db->join('tab_login l','u.id_usuario=l.id_usuario');
+					$this->db->where('rol_login',$tipo);
+					$query = $this->db->get();
+					if($query->num_rows() > 0)
+					{
+						//si hay registros los devolvemos
+						return $query->result();
+						//return false;
+					}
+					else
+					{
+						//si no hay registros devolvemos false
+						return false;
+					}
+				break;
 			}
 		}
 
@@ -100,8 +126,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				break;
 				
 				case 'administrativo':
-					# code...
-					break;
+					$this->db->select('nombre_usuario,apellido_usuario,correo_usuario,cargo_usuario');
+					$this->db->from('tab_usuario');
+					$this->db->where('id_usuario',$id);
+					$query = $this->db->get();
+					if($query->num_rows() > 0){
+					//si hay registros los devolvemos
+					return $query->result();
+					//return false;
+					}else{
+						//si no hay registros devolvemos false
+						return false;
+					}
+				break;
 			}	
 		}
 
@@ -116,6 +153,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->set('nivel_usuario',$e_nivel);
 			$this->db->set('estado_usuario',$estado);
 			$this->db->where('id_usuario',$id);
+			$this->db->update('tab_usuario');
+			if($this->db->affected_rows() > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		//función para actualizar el administrativo
+		public function actualizar_administrativo($id_adm,$nombre_adm,$apellido_adm,$correo_adm,$cargo_adm)
+		{
+			$this->db->set('nombre_usuario',$nombre_adm);
+			$this->db->set('apellido_usuario',$apellido_adm);
+			$this->db->set('correo_usuario',$correo_adm);
+			$this->db->set('cargo_usuario',$cargo_adm);
+			$this->db->where('id_usuario',$id_adm);
 			$this->db->update('tab_usuario');
 			if($this->db->affected_rows() > 0)
 			{

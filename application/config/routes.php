@@ -69,6 +69,7 @@ $route['ver-administrativos'] = 'Root_controller/ver_administrativo';
 #actualizar usuarios
 $route['editar_usuario'] = 'Root_controller/editar_usuario';
 $route['actualizar-participante'] = 'Root_controller/actualizar_participante';
+$route['actualizar-administrativo'] = 'Root_controller/actualizar_administrativo';
 
 #eliminar usuarios
 $route['eliminar-participante'] = 'Root_controller/eliminar_usuario';

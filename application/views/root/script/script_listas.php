@@ -44,6 +44,28 @@
 			case 'administrativo':
 				//vamos a abrir el modal para editar administrativo
 				$('#editar_administrativo').modal();
+				//hacemo una función ajax para obtener los datos a editar
+				$.ajax({
+					type: 'post',
+					url: '<?php echo base_url()?>editar_usuario',
+					data: {id: id, rol: rol},
+					async: false,
+					dataType: 'json',
+					success: function(data){
+						if(data)
+						{
+							$('#id_adm').val(id);
+							$('#edit_nombre_administrativo').val(data[0].nombre_usuario);
+							$('#edit_apellido_administrativo').val(data[0].apellido_usuario);
+							$('#edit_correo_administrativo').val(data[0].correo_usuario);
+							$('#edit_cargo_administrativo').val(data[0].cargo_usuario);
+						}
+						else
+						{
+							alert('error');
+						}
+					}
+				});
 			break;
 			case 'ex_participante':
 			break;

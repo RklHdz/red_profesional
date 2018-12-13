@@ -1,3 +1,4 @@
+<!-- si no se cumple las reglas del form_validation del participante -->
 <?php
     if ($this->session->flashdata('error1'))
     {
@@ -7,7 +8,17 @@
     }
 ?>
 
-<!--Si hubo un error al insertar el usuario-->
+<!-- si no se cumple las reglas del form_validation del administrativo -->
+<?php
+    if ($this->session->flashdata('error3'))
+    {
+        echo '<div id="error" class="alert alert-danger">';
+        echo $this->session->flashdata('error3');
+        echo "</div>";
+    }
+?>
+
+<!--Si hubo un error al actualizar el participante-->
 <?php 
 	if($this->session->flashdata('Error1')){?>
 		<script>
@@ -19,9 +30,33 @@
 		</script>
 <?php } ?>
 
-<!--Éxito al insertar el usuario-->
+<!--Si hubo un error al actualizar el administrativo-->
+<?php 
+	if($this->session->flashdata('Error3')){?>
+		<script>
+			Swal(
+			  'Atención!',
+			  'El usuario no pudo ser actualizado! <br>ó son los mismos datos',
+			  'warning'
+			)
+		</script>
+<?php } ?>
+
+<!--Éxito al actualizar el participante-->
 <?php 
 	if($this->session->flashdata('Exito1')){?>
+		<script>
+			Swal(
+			  'Éxito!',
+			  'El usuario fue actualizado!',
+			  'success'
+			);		    			
+		</script>
+<?php } ?>
+
+<!--Éxito al actualizar el padministrativo-->
+<?php 
+	if($this->session->flashdata('Exito3')){?>
 		<script>
 			Swal(
 			  'Éxito!',
@@ -91,7 +126,7 @@
 								<input type="hidden" name="id" id="id">
 								<div class="form-group col-md-6">
 									<label for="edit_nombre_usuario"><strong>Nombres</strong></label>
-									<input type="text" class="form-control" id="edit_nombre_usuario"  name="edit_nombre_usuario" placeholder="Digite sus nombres" value="<?php echo set_value('edit_nombre_usuario'); ?>" >
+									<input type="text" class="form-control" id="edit_nombre_usuario"  name="edit_nombre_usuario" placeholder="Digite sus nombres" value="<?php echo set_value('edit_nombre_usuario'); ?>"  >
 									
 								</div>
 								<div class="form-group col-md-6">
@@ -147,7 +182,58 @@
 <div id="editar_administrativo" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div id="contenido" class="modal-content">
-      administrativo
+
+    	<form id="edit_form_a" action="<?php echo base_url()?>actualizar-administrativo" method="post">
+    	<div class="modal-header">
+	        <h3 class="modal-title" id="exampleModalCenterTitle">Editar Administrativo</h3>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	     </div>
+		<div class="modal-body">
+      
+	
+			<div class="row mt">
+				<div class="col-md-12">	
+					<div class="panel panel-primary">
+						<div class="panel-heading">Datos generales</div>
+						<div class="panel-body">
+							<div class="form-row">
+								<input type="hidden" name="id_adm" id="id_adm">
+								<div class="form-group col-md-6">
+									<label for="edit_nombre_administrativo"><strong>Nombres</strong></label>
+									<input type="text" class="form-control" id="edit_nombre_administrativo"  name="edit_nombre_administrativo" placeholder="Digite sus nombres" value="<?php echo set_value('edit_nombre_administrativo'); ?>" required >
+									
+								</div>
+								<div class="form-group col-md-6">
+									<label for="edit_apellido_administrativo"><strong>Apellidos</strong></label>
+									<input type="text" class="form-control" id="edit_apellido_administrativo" name="edit_apellido_administrativo"  placeholder="Digite sus apellidos" value="<?php echo set_value('edit_apellido_administrativo'); ?>" required>
+								</div>
+							</div>
+
+							<div class="form-row">
+								<div class="form-group col-md-3">
+									<label for="edit_correo_administrativo"><strong>Correo Electronico</strong></label>
+									<input type="text" class="form-control" id="edit_correo_administrativo" name="edit_correo_administrativo"  placeholder="Digite su correo" value="<?php echo set_value('edit_correo_administrativo'); ?>" required>
+									
+								</div>
+								<div class="form-group col-md-4">
+									<label for="edit_cargo_administrativo"><strong>Cargo administrativo</strong></label>
+									<input type="text" class="form-control" id="edit_cargo_administrativo" name="edit_cargo_administrativo"  placeholder="Digite el cargo del administrativo" value="<?php echo set_value('edit_cargo_administrativo'); ?>" required>
+								</div>
+								
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+	        <button type="submit" class="btn btn-primary">Actualizar</button>
+	    </div>
+	    </form>
     </div>
   </div>
 </div>
@@ -164,11 +250,12 @@
         </button>
       </div>
       <div class="modal-body">
-      	<input type="text" name="id_eliminar" id="id_eliminar">
-        <p>Desea Eliminar este participante</p>
+      	<input type="hidden" name="id_eliminar" id="id_eliminar">
+        <h1><p>¿Realmente desea Eliminar este Registro?</p></h1>
+        <h4><p>Esta acción no podra revertirse</p></h4>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         <button type="button" class="btn btn-danger">Eliminar</button>
       </div>
       </form>
