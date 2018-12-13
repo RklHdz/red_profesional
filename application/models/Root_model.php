@@ -126,4 +126,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				return false;
 			}
 		}
+
+		//función para eliminar, tanto participante, administrativo y ex participante
+		public function eliminar_usuario($id)
+		{
+			$this->db->where('id_usuario',$id);
+			$this->db->delete('tab_usuario');
+			if($this->db->affected_rows() > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}//fin de la clase

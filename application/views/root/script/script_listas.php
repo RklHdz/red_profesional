@@ -3,7 +3,11 @@
 		//$('#tabla').DataTable();
 	});
 
-
+	function eliminar(id)
+	{
+		$('#eliminar_participante').modal();
+		$('#id_eliminar').val(id);
+	}
 	function editar(id,rol)
 	{
 		console.log(id);console.log(rol);

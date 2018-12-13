@@ -54,7 +54,7 @@
 			<td> <?php echo $key->nombre_usuario .' '.$key->apellido_usuario ?> </td>
 			<td> <?php echo $key->usuario_login ?> </td>
 			<td> <a class="btn btn-info" href="javascript:;" onclick="editar(<?php echo $key->id_usuario; ?>,'<?php echo $key->rol_login; ?>')"><i class="fa fa-pencil"></i></a> </td>
-			<td> <a class="btn btn-danger" href=""><i class="fa fa-trash"></i></a> </td>
+			<td> <a class="btn btn-danger" href="javascript:;" onclick="eliminar(<?php echo $key->id_usuario; ?>)"><i class="fa fa-trash"></i></a> </td>
 		</tr>
 		<?php } ?>
 	</tbody>
@@ -148,6 +148,30 @@
   <div class="modal-dialog modal-lg">
     <div id="contenido" class="modal-content">
       administrativo
+    </div>
+  </div>
+</div>
+
+<!----------------Modal para eliminar------------------------------>
+<div id="eliminar_participante" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    	<form action="eliminar-participante" method="post">
+      <div class="modal-header">
+        <h5 class="modal-title">Eliminar Participante</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<input type="text" name="id_eliminar" id="id_eliminar">
+        <p>Desea Eliminar este participante</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger">Eliminar</button>
+      </div>
+      </form>
     </div>
   </div>
 </div>

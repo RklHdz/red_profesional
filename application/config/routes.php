@@ -70,6 +70,9 @@ $route['ver-administrativos'] = 'Root_controller/ver_administrativo';
 $route['editar_usuario'] = 'Root_controller/editar_usuario';
 $route['actualizar-participante'] = 'Root_controller/actualizar_participante';
 
+#eliminar usuarios
+$route['eliminar-participante'] = 'Root_controller/eliminar_usuario';
+
 $route['ejemplo'] = 'Ejemplo/participante';
 
 $route['translate_uri_dashes'] = FALSE;

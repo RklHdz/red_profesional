@@ -231,5 +231,16 @@ class Root_controller extends CI_Controller
 		}
 	}
 
+	//función para eliminar participante
+	public function eliminar_participante()
+	{
+		$id = $this->input->post('id_eliminar');
+		$result = $this->root->eliminar_usuario($id);
+		if($result)
+		{
+			$result1 = $this->root->eliminar_login();
+		}
+	}
+
 
 }
