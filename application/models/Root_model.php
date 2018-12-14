@@ -216,4 +216,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				return false;
 			}
 		}
+
+		//consulta para obtener el detalle del ex participante
+		public function detalle_ex($id)
+		{
+			$this->db->select('nombre_usuario,apellido_usuario,correo_usuario');
+			$this->db->from('tab_usuario');
+			$this->db->where('id_usuario',$id);
+			$query = $this->db->get();
+			if($query->num_rows() > 0)
+			{
+				//si hay registros los devolvemos
+				return $query->result();
+				//return false;
+			}
+			else
+			{
+				//si no hay registros devolvemos false
+				return false;
+			}
+		}
 	}//fin de la clase

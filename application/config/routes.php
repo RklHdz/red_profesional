@@ -67,6 +67,9 @@ $route['ver-participantes'] = 'Root_controller/ver_participante';
 $route['ver-exparticipantes'] = 'Root_controller/ver_exparticipantes';
 $route['ver-administrativos'] = 'Root_controller/ver_administrativo';
 
+#ver detalle ex participante
+$route['detalle_ex'] = 'Root_controller/detalle_ex';
+
 #actualizar usuarios
 $route['editar_usuario'] = 'Root_controller/editar_usuario';
 $route['actualizar-participante'] = 'Root_controller/actualizar_participante';

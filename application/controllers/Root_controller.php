@@ -57,7 +57,7 @@ class Root_controller extends CI_Controller
 		$this->load->view('componentes/header/Header_view');
 		$this->load->view('componentes/nav/Nav_view');
 		$this->load->view('componentes/panel/Root_view');
-		$this->load->view('root/Listado_view',$datos);//vista que se quiere mostrar
+		$this->load->view('root/Listado_ex_view',$datos);//vista que se quiere mostrar
 		$this->load->view('componentes/footer/Footer_view');
 		$this->load->view('root/script/script_listas');
 	}
@@ -311,6 +311,14 @@ class Root_controller extends CI_Controller
 		{
 			$result1 = $this->root->eliminar_login();
 		}
+	}
+
+	//función para obtener el detalle del ex participante
+	public function detalle_ex()
+	{
+		$id = $this->input->post('id');
+		$dato = $this->root->detalle_ex($id);
+		echo json_encode($dato);
 	}
 
 

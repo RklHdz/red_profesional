@@ -3,6 +3,32 @@
 		//$('#tabla').DataTable();
 	});
 
+	function ver_ex(id)
+	{
+		$('#ver').modal();
+		//creamos una función ajax para poder obtener los datos
+		$.ajax({
+			type: 'post',
+			url: '<?php echo base_url()?>detalle_ex',
+			data: {id: id},
+			async: false,
+			dataType: 'json',
+			success: function(data){
+				if(data)
+				{
+					//agregamos los datos a cada input
+					$('#nombre_ex').val(data[0].nombre_usuario);
+					$('#apellido_ex').val(data[0].apellido_usuario);
+					$('#correo_ex').val(data[0].correo_usuario);
+				}
+				else
+				{
+
+				}
+			}
+		});
+	}
+
 	function eliminar(id)
 	{
 		$('#eliminar_participante').modal();

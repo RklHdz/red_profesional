@@ -10,20 +10,13 @@
 					<!--Cambiar por el nombre de usuario en la sesión-->
 					<h5 class="centered">USUARIO</h5>
 					
-					<li class="mt">
-						<a href="javascript:;">
-							<i class="fa fa-dashboard"></i>
-							<span>Inicio</span>
-						</a>
-					</li>
-
 					<li class="sub-menu">
 						<a href="javascript:;">
 							<i class="fa fa-users"></i>
 							<span>Gestionar usuarios</span>
 						</a>
 						<ul class="sub">
-							<li class="active"><a href="<?php echo base_url('agregar-usuario') ?>">Agregar usuarios</a></li>
+							<li><a href="<?php echo base_url('agregar-usuario') ?>">Agregar usuarios</a></li>
 							<li><a href="<?php echo base_url('ver-participantes') ?>">Ver participantes</a></li>
 							<li><a href="<?php echo base_url('ver-exparticipantes') ?>">Ver ex participantes</a></li>
 							<li><a href="<?php echo base_url('ver-administrativos') ?>">Ver administrativos</a></li>
