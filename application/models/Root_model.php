@@ -103,6 +103,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						return false;
 					}
 				break;
+
+				case 'exparticipantes':
+					$this->db->select('u.id_usuario,u.nombre_usuario,u.apellido_usuario,l.usuario_login,l.rol_login');
+					$this->db->from('tab_usuario u');
+					$this->db->join('tab_login l','u.id_usuario=l.id_usuario');
+					$this->db->where('estado_usuario','inactivo');
+					$query = $this->db->get();
+					if($query->num_rows() > 0)
+					{
+						//si hay registros los devolvemos
+						return $query->result();
+						//return false;
+					}
+					else
+					{
+						//si no hay registros devolvemos false
+						return false;
+					}
+				break;
 			}
 		}
 

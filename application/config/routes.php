@@ -64,6 +64,7 @@ $route['comprobar_usuario'] = 'Root_controller/comprobar_usuario';
 
 #ver usuarios
 $route['ver-participantes'] = 'Root_controller/ver_participante';
+$route['ver-exparticipantes'] = 'Root_controller/ver_exparticipantes';
 $route['ver-administrativos'] = 'Root_controller/ver_administrativo';
 
 #actualizar usuarios

@@ -45,10 +45,27 @@ class Root_controller extends CI_Controller
 		$this->load->view('root/script/script_listas');
 	}
 
+	//función para ver ex participantes
+	public function ver_exparticipantes()
+	{
+		#vamos a traer los datos de los exparticipantes
+
+		$datos['detalle'] = $this->root->detalle('exparticipantes');
+
+		$datos['msj'] = 'ex participantes';
+
+		$this->load->view('componentes/header/Header_view');
+		$this->load->view('componentes/nav/Nav_view');
+		$this->load->view('componentes/panel/Root_view');
+		$this->load->view('root/Listado_view',$datos);//vista que se quiere mostrar
+		$this->load->view('componentes/footer/Footer_view');
+		$this->load->view('root/script/script_listas');
+	}
+
 	//función para ver el listado de los administrativos
 	public function ver_administrativo()
 	{
-		#vamos a traer los datos de los participantes
+		#vamos a traer los datos de los administrativos
 
 		$datos['detalle'] = $this->root->detalle('administrativo');
 
