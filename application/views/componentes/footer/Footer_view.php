@@ -38,7 +38,7 @@
   <script src="<?php echo base_url('assets/js/common-scripts.js') ?>"></script>
   <!--script for this page-->
   
-	
+	<script src="<?php echo base_url()?>assets/js/root/panel.js"></script>
 </body>
 
 </html>
