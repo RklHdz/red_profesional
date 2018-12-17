@@ -236,4 +236,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				return false;
 			}
 		}
+
+		//función para obtener los grupos de cierta especialidad
+		public function get_grupos($especialidad,$nivel)
+		{
+			$this->db->select_max('grupo_usuario');
+			$this->db->where('especialidad_usuario',$especialidad);
+			$this->db->where('nivel_usuario',$nivel);
+			$query = $this->db->get('tab_usuario');
+			if($query->num_rows() > 0)
+			{
+				//si hay registros los devolvemos
+				return $query->result_array();
+				//return false;
+			}
+			else
+			{
+				//si no hay registros devolvemos false
+				return false;
+			}
+		}
+
+		//función que obtiene el listado de alumnos, segun la especialidad, nivel y grupo
+		public function lista($especialidad,$nivel,$grupo)
+		{
+			$this->db->select('u.id_usuario,u.nombre_usuario,u.apellido_usuario,u.correo_usuario,l.usuario_login');
+			$this->db->from('tab_usuario u');
+			$this->db->join('tab_login l','u.id_usuario=l.id_usuario');
+			$this->db->where('u.nivel_usuario',$nivel);
+			$this->db->where('u.grupo_usuario',$grupo);
+			$query = $this->db->get('tab_usuario');
+			if($query->num_rows() > 0)
+			{
+				//si hay registros los devolvemos
+				return $query->result_array();
+				//return false;
+			}
+			else
+			{
+				//si no hay registros devolvemos false
+				return false;
+			}
+		}
 	}//fin de la clase

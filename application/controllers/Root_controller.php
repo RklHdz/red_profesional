@@ -98,8 +98,8 @@ class Root_controller extends CI_Controller
 			//el primero es el nombre del campo a validar
 			//el segundo es el valor que se le mostrará al usuario cuando haya un error
 			//el tercero es la regla en si
-			$this->form_validation->set_rules('nombre_usuario','Nombres','trim|required|alpha');
-			$this->form_validation->set_rules('apellido_usuario','Apellidos','trim|required|alpha');
+			$this->form_validation->set_rules('nombre_usuario','Nombres','trim|required|callback_alpha_dash_space');
+			$this->form_validation->set_rules('apellido_usuario','Apellidos','trim|required|callback_alpha_dash_space');
 			$this->form_validation->set_rules('correo_usuario','Correo Electronico','trim|required|valid_email');
 
 			$this->form_validation->set_rules('usuario_login','Nombre de usuario','trim|required');
@@ -179,6 +179,12 @@ class Root_controller extends CI_Controller
 
 			}
 		}
+	}
+
+	function alpha_dash_space($str)
+	{
+		$this->form_validation->set_message('alpha_dash_space','El campo %s solo debe contener letras');
+	    return ( ! preg_match("/^([-a-z_ ])+$/i", $str)) ? FALSE : TRUE;
 	}
 
 	//función para comprobar si el usuario existe o no
@@ -321,7 +327,36 @@ class Root_controller extends CI_Controller
 		echo json_encode($dato);
 	}
 
+	//función para obtener el maximo de grupos de una especialidad
+	//recibe como parametro la especialidad
+	public function niveles($especialidad)
+	{
+		$datos['especialidad'] = $especialidad;
+		//obtener el numero de grupos
+		$datos['nivel1'] = $this->root->get_grupos($especialidad,1);
+		$datos['nivel2'] = $this->root->get_grupos($especialidad,2);
+		$datos['nivel3'] = $this->root->get_grupos($especialidad,3);
+		
+		//cargamos la vista y le mandamos el dato
+		$this->load->view('componentes/header/Header_view');
+		$this->load->view('componentes/nav/Nav_view');
+		$this->load->view('componentes/panel/Root_view');
+		$this->load->view('root/Niveles_view',$datos);
+		$this->load->view('componentes/footer/Footer_view');
+	}
 
+	public function grupo($especialidad,$nivel,$grupo)
+	{		
+		$datos['especialidad'] = $especialidad;
+		$datos['nivel'] = $nivel;
+		$datos['grupo'] = $grupo + 1;
 
-
+		$datos['lista'] = $this->root->lista($especialidad,$nivel,$grupo);
+		//cargamos la vista y le mandamos el dato
+		$this->load->view('componentes/header/Header_view');
+		$this->load->view('componentes/nav/Nav_view');
+		$this->load->view('componentes/panel/Root_view');
+		$this->load->view('root/Grupos_view',$datos);
+		$this->load->view('componentes/footer/Footer_view');
+	}
 }

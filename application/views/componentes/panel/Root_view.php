@@ -29,8 +29,10 @@
 							<span>Especialidades</span>
 						</a>
 						<ul class="sub">
-							<li><a href="<?php echo base_url('agregar-usuario') ?>">Java</a></li>
-							<li><a href="<?php echo base_url('ver-participantes') ?>">PHP</a></li>
+							<!--<li><a href="<?php //echo base_url('especialidad/'.'JAVA') ?>">Java</a></li>
+							<li><a href="<?php //echo base_url('especialidad/'.'PHP') ?>">PHP</a></li>-->
+							<li><a href="<?php echo base_url('nivel/'.'JAVA') ?>">JAVA</a></li>
+							<li><a href="<?php echo base_url('nivel/'.'PHP') ?>">PHP</a></li>
 						</ul>
 					</li>
 

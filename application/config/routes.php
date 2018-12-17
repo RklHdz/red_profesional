@@ -78,6 +78,13 @@ $route['actualizar-administrativo'] = 'Root_controller/actualizar_administrativo
 #eliminar usuarios
 $route['eliminar-participante'] = 'Root_controller/eliminar_usuario';
 
+#Especialidades
+$route['especialidad/(:any)'] = 'Root_controller/grupos/$1';
+
+$route['nivel/(:any)'] = 'Root_controller/niveles/$1';
+
+$route['grupo/(:any)/(:any)/(:any)'] = 'Root_controller/grupo/$1/$2/$3';
+
 $route['ejemplo'] = 'Ejemplo/participante';
 
 $route['translate_uri_dashes'] = FALSE;

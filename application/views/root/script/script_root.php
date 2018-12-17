@@ -15,9 +15,9 @@
 				$('#l_cargo').remove();
 				$('#cargo_usuario').remove();
 
-				$('#p_especialidad').append('<label id="t_especialidad">Especialidad</label><select class="form-control" name="especialidad_usuario" id="especialidad_usuario"><option value="JAVA">JAVA</option><option value="PHP">PHP</option></select>');
-				$('#p_grupo').append('<label id="t_grupo">Grupo</label><input type="text" class="form-control" id="grupo_usuario" name="grupo_usuario"  placeholder="Digite su grupo" >');
-				$('#p_nivel').append('<label id="t_nivel">Nivel</label><input type="text" class="form-control" id="nivel_usuario" name="nivel_usuario"  placeholder="Digite el nivel" >');
+				$('#p_especialidad').append('<label id="t_especialidad">Especialidad</label><select class="form-control" name="especialidad_usuario" id="especialidad_usuario"><option value="JAVA" <?php echo  set_select('especialidad_usuario', 'JAVA'); ?> >JAVA</option><option value="PHP" <?php echo  set_select('especialidad_usuario', 'PHP'); ?> >PHP</option></select>');
+				$('#p_grupo').append('<label id="t_grupo">Grupo</label><input type="text" class="form-control" id="grupo_usuario" name="grupo_usuario"  placeholder="Digite su grupo" value="<?php echo set_value('grupo_usuario'); ?>" >');
+				$('#p_nivel').append('<label id="t_nivel">Nivel</label><input type="text" class="form-control" id="nivel_usuario" name="nivel_usuario"  placeholder="Digite el nivel" value="<?php echo set_value('nivel_usuario'); ?>" >');
 			}
 			else
 			{
