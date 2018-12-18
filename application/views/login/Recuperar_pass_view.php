@@ -1,6 +1,6 @@
    <div id="login-page">
     <div class="container">
-      <form class="rest-pass" action="#">
+      <form class="rest-pass" action=" <?php echo base_url()?>Login_controller/generar_password" method="POST">
         <h2 class="rest-pass-heading">Restaurar contraseña</h2>
 
 				<div class="text-center">
@@ -15,13 +15,35 @@
 
 
         <div class="login-wrap" align="center">
-        	<label >Introduzca su usuario asignado, para reestablecer su contraseña.</label>
-          <input type="text" class="form-control" placeholder="usuario" autofocus>
+        	<label >Introduzca su usuario asignado, para reestablecer su contraseña.</label><br>
+            <?php
+                $correcto = $this->session->flashdata('correcto');
+                 if ($correcto) 
+                      {
+            ?>
+                        <b><span style="color: red" id="registroCorrecto"><?= $correcto ?></span></b>
+                      <?php
+                        }
+                        ?>
+
+                <?php if($this->session->flashdata('val')): ?>
+                  <script type="text/javascript">
+                       swal('Éxito',
+                        '<b style="color: rgb(0,159,0);"> Se ha enviado el mensaje, con la nueva contraseña.<br> Revisa tú correo.</b>',
+                        'success'
+                        )
+                       
+                  </script>
+                <?php endif; ?>
+         
+          <input type="text" class="form-control" placeholder="usuario" autofocus="off" autocomplete="off" name="mail">
           <br>
           <button class="btn btn-theme " href="#" type="submit"><i class="fa fa-paper-plane"></i> Recuperar contraseña</button>
-        </div>
-        <a style="padding:  0px 25px" href="<?php echo base_url()?>">REGRESAR LOGIN</a>
+          
+        <br><br>
+        <div align="left">
+        <a style="padding: 0px; margin: 0px"  href="<?php echo base_url()?>">REGRESAR LOGIN</a></div>
       </form>
-
+      </div>
     </div>
   </div>
