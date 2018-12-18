@@ -58,10 +58,10 @@
 					    case "root":
 					        echo 1;
 					        break;
-					    case "participante":
+					    case "Participante":
 					        echo 2;
 					        break;
-					    case "administrativo":
+					    case "Administrativo":
 					        echo 3;
 					        break;
 					    
