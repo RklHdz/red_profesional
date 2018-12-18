@@ -20,7 +20,7 @@
   		<center><h3>Sin grupo</h3></center>
   	<?php }else{ ?>
 			<div class="row">
-				<?php for ($i=0; $i < $nivel1[0]['grupo_usuario'] ; $i++) { ?>
+				<?php for ($i=0; $i < $nivel1[0]['grupo_usuario'] ; $i++) {  $grupo = $i+1; ?>
 					<div class="col-md-3">
 					<div class="panel panel-headline">
 						<div class="panel-heading">
@@ -28,7 +28,7 @@
 						</div>
 						<div class="panel-body text-center">
 							<?php if($especialidad == 'PHP') {?>
-							<a href="<?php echo base_url('grupo/'.$especialidad.'/'.'1'.'/'.$i)?>"><img src="<?php echo base_url()?>/assets/img/defecto/php.png" height="50px" width="80px" alt=""></a>
+							<a href="<?php echo base_url('grupo/'.$especialidad.'/'.'1'.'/'.$grupo)?>"><img src="<?php echo base_url()?>/assets/img/defecto/php.png" height="50px" width="80px" alt=""></a>
 						<?php }else{ ?>
 							<a href=""><img src="<?php echo base_url()?>/assets/img/defecto/java.png" height="80px" width="80px" alt=""></a>
 						<?php } ?>

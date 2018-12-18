@@ -349,7 +349,7 @@ class Root_controller extends CI_Controller
 	{		
 		$datos['especialidad'] = $especialidad;
 		$datos['nivel'] = $nivel;
-		$datos['grupo'] = $grupo + 1;
+		$datos['grupo'] = $grupo;
 
 		$datos['lista'] = $this->root->lista($especialidad,$nivel,$grupo);
 		//cargamos la vista y le mandamos el dato
