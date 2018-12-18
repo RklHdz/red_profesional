@@ -34,7 +34,7 @@
 
         if(data==1){
 
-          window.location.replace("<?php echo site_url();?>Login_controller/vista_root"); 
+          window.location.replace("<?php echo site_url();?>agregar-usuario"); 
         }
 
         if(data==2){
