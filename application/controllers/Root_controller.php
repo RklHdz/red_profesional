@@ -358,5 +358,6 @@ class Root_controller extends CI_Controller
 		$this->load->view('componentes/panel/Root_view');
 		$this->load->view('root/Grupos_view',$datos);
 		$this->load->view('componentes/footer/Footer_view');
+		$this->load->view('root/script/script_grupo');
 	}
 }

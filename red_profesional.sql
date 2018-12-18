@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-12-2018 a las 23:53:39
+-- Tiempo de generación: 18-12-2018 a las 18:45:01
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -96,22 +96,6 @@ CREATE TABLE `tab_habilidades` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tab_historico`
---
-
-CREATE TABLE `tab_historico` (
-  `id_historico` int(10) NOT NULL,
-  `num_aplicadas` int(10) DEFAULT NULL,
-  `fecha_aplico_historico` date DEFAULT NULL,
-  `fecha_inicio_historico` date DEFAULT NULL,
-  `fecha_fin_historico` date DEFAULT NULL,
-  `id_usuario` int(10) DEFAULT NULL,
-  `id_oferta` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `tab_hoja_vida`
 --
 
@@ -171,13 +155,11 @@ INSERT INTO `tab_login` (`id_login`, `usuario_login`, `contrasenia_login`, `rol_
 
 CREATE TABLE `tab_notificacion` (
   `id_notificacion` int(10) NOT NULL,
-  `notificacion` mediumtext COLLATE utf8_spanish2_ci,
-  `hora_notificacion` time DEFAULT NULL,
-  `fecha_envio_notificacion` date DEFAULT NULL,
-  `tipo_notificacion` int(10) DEFAULT NULL,
   `estado_notificacion` varchar(20) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `id_oferta` int(10) NOT NULL,
-  `reaccion_notificacion` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL
+  `reaccion_notificacion` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `fecha_leido` date DEFAULT NULL,
+  `id_usuario` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
@@ -193,7 +175,9 @@ CREATE TABLE `tab_oferta` (
   `tipo_oferta` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `representante_participante` varchar(145) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `telefono_representante_participante` int(15) DEFAULT NULL,
-  `direccion_oferta` varchar(255) COLLATE utf8_spanish2_ci DEFAULT NULL
+  `direccion_oferta` varchar(255) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `hora_oferta` time DEFAULT NULL,
+  `fecha_creacion_oferta` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
@@ -252,6 +236,8 @@ CREATE TABLE `tab_usuario` (
   `tipo_sangre_usuario` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `estado_usuario` varchar(25) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `fecha_nacimiento_usuario` date DEFAULT NULL,
+  `fecha_inicio_pasantia` date DEFAULT NULL,
+  `fecha_fin_pasantia` date DEFAULT NULL,
   `id_oferta` int(10) DEFAULT NULL,
   `imagen_perfil` varchar(1000) COLLATE utf8_spanish2_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
@@ -260,15 +246,15 @@ CREATE TABLE `tab_usuario` (
 -- Volcado de datos para la tabla `tab_usuario`
 --
 
-INSERT INTO `tab_usuario` (`id_usuario`, `nombre_usuario`, `apellido_usuario`, `genero_usuario`, `dui_usuario`, `nit_usuario`, `licencia_usuario`, `carnet_menor_usuario`, `correo_usuario`, `telefono1_usuario`, `telefono2_usuario`, `direccion_usuario`, `cargo_usuario`, `especialidad_usuario`, `grupo_usuario`, `nivel_usuario`, `tipo_sangre_usuario`, `estado_usuario`, `fecha_nacimiento_usuario`, `id_oferta`, `imagen_perfil`) VALUES
-(1, 'Salvador Enrique', 'Quezada Campos', NULL, NULL, NULL, NULL, NULL, 'enrique.qzada@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'Ana Raquel', 'Hernandez', NULL, NULL, NULL, NULL, NULL, 'ana@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 'mario', 'campos', NULL, NULL, NULL, NULL, NULL, 'ma@f.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'juan', 'valle', NULL, NULL, NULL, NULL, NULL, 'juan@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(5, 'maria', 'morales', NULL, NULL, NULL, NULL, NULL, 'm@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(6, 'pedro', 'cornejo', NULL, NULL, NULL, NULL, NULL, 'p@g.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 'pablo', 'escobar', NULL, NULL, NULL, NULL, NULL, 'coca@gmail.com', NULL, NULL, NULL, NULL, 'php', '1', '1', NULL, NULL, NULL, NULL, NULL),
-(8, 'panfilo', ' anacleto', NULL, NULL, NULL, NULL, NULL, 'anacleto@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `tab_usuario` (`id_usuario`, `nombre_usuario`, `apellido_usuario`, `genero_usuario`, `dui_usuario`, `nit_usuario`, `licencia_usuario`, `carnet_menor_usuario`, `correo_usuario`, `telefono1_usuario`, `telefono2_usuario`, `direccion_usuario`, `cargo_usuario`, `especialidad_usuario`, `grupo_usuario`, `nivel_usuario`, `tipo_sangre_usuario`, `estado_usuario`, `fecha_nacimiento_usuario`, `fecha_inicio_pasantia`, `fecha_fin_pasantia`, `id_oferta`, `imagen_perfil`) VALUES
+(1, 'Salvador Enrique', 'Quezada Campos', NULL, NULL, NULL, NULL, NULL, 'enrique.qzada@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'Ana Raquel', 'Hernandez', NULL, NULL, NULL, NULL, NULL, 'ana@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'mario', 'campos', NULL, NULL, NULL, NULL, NULL, 'ma@f.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'juan', 'valle', NULL, NULL, NULL, NULL, NULL, 'juan@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 'maria', 'morales', NULL, NULL, NULL, NULL, NULL, 'm@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 'pedro', 'cornejo', NULL, NULL, NULL, NULL, NULL, 'p@g.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 'pablo', 'escobar', NULL, NULL, NULL, NULL, NULL, 'coca@gmail.com', NULL, NULL, NULL, NULL, 'php', '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 'panfilo', ' anacleto', NULL, NULL, NULL, NULL, NULL, 'anacleto@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -310,14 +296,6 @@ ALTER TABLE `tab_habilidades`
   ADD KEY `FKtab_habili879116` (`id_hoja_vida`);
 
 --
--- Indices de la tabla `tab_historico`
---
-ALTER TABLE `tab_historico`
-  ADD PRIMARY KEY (`id_historico`),
-  ADD KEY `FKtab_histor266085` (`id_usuario`),
-  ADD KEY `FKtab_histor905711` (`id_oferta`);
-
---
 -- Indices de la tabla `tab_hoja_vida`
 --
 ALTER TABLE `tab_hoja_vida`
@@ -344,7 +322,8 @@ ALTER TABLE `tab_login`
 --
 ALTER TABLE `tab_notificacion`
   ADD PRIMARY KEY (`id_notificacion`),
-  ADD KEY `FKtab_notifi695024` (`id_oferta`);
+  ADD KEY `id_oferta` (`id_oferta`),
+  ADD KEY `id_usuario` (`id_usuario`);
 
 --
 -- Indices de la tabla `tab_oferta`
@@ -406,12 +385,6 @@ ALTER TABLE `tab_funciones`
 --
 ALTER TABLE `tab_habilidades`
   MODIFY `id_habilidades` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `tab_historico`
---
-ALTER TABLE `tab_historico`
-  MODIFY `id_historico` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tab_hoja_vida`
@@ -496,13 +469,6 @@ ALTER TABLE `tab_habilidades`
   ADD CONSTRAINT `FKtab_habili879116` FOREIGN KEY (`id_hoja_vida`) REFERENCES `tab_hoja_vida` (`id_hoja_vida`);
 
 --
--- Filtros para la tabla `tab_historico`
---
-ALTER TABLE `tab_historico`
-  ADD CONSTRAINT `FKtab_histor266085` FOREIGN KEY (`id_usuario`) REFERENCES `tab_usuario` (`id_usuario`),
-  ADD CONSTRAINT `FKtab_histor905711` FOREIGN KEY (`id_oferta`) REFERENCES `tab_oferta` (`id_oferta`);
-
---
 -- Filtros para la tabla `tab_hoja_vida`
 --
 ALTER TABLE `tab_hoja_vida`
@@ -524,7 +490,8 @@ ALTER TABLE `tab_login`
 -- Filtros para la tabla `tab_notificacion`
 --
 ALTER TABLE `tab_notificacion`
-  ADD CONSTRAINT `FKtab_notifi695024` FOREIGN KEY (`id_oferta`) REFERENCES `tab_oferta` (`id_oferta`);
+  ADD CONSTRAINT `tab_notificacion_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `tab_usuario` (`id_usuario`),
+  ADD CONSTRAINT `tab_notificacion_ibfk_2` FOREIGN KEY (`id_oferta`) REFERENCES `tab_oferta` (`id_oferta`);
 
 --
 -- Filtros para la tabla `tab_referencia`
@@ -537,12 +504,6 @@ ALTER TABLE `tab_referencia`
 --
 ALTER TABLE `tab_requerimiento`
   ADD CONSTRAINT `FKtab_requer487243` FOREIGN KEY (`id_oferta`) REFERENCES `tab_oferta` (`id_oferta`);
-
---
--- Filtros para la tabla `tab_usuario`
---
-ALTER TABLE `tab_usuario`
-  ADD CONSTRAINT `FKtab_usuari416654` FOREIGN KEY (`id_oferta`) REFERENCES `tab_oferta` (`id_oferta`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

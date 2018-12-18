@@ -47,8 +47,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		//función para insertar los datos del logín del usuario que se acaba de insertar
 		public function insert_login($id,$usuario_login,$contrasenia_login,$rol_login)
 		{
+			//encriptamos la contraeña con la libreria encryption
+			$pass = $this->encryption->encrypt($contrasenia_login);
 			$this->db->set('usuario_login',$usuario_login);
-			$this->db->set('contrasenia_login',$contrasenia_login);
+			$this->db->set('contrasenia_login',$pass);
 			$this->db->set('rol_login',$rol_login);
 			$this->db->set('id_usuario',$id);
 			$this->db->insert('tab_login');
@@ -130,7 +132,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		{
 			switch ($rol) {
 				case 'participante':
-					$this->db->select('nombre_usuario,apellido_usuario,correo_usuario,especialidad_usuario,grupo_usuario,nivel_usuario');
+					$this->db->select('*');
 					$this->db->from('tab_usuario');
 					$this->db->where('id_usuario',$id);
 					$query = $this->db->get();
@@ -260,16 +262,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		//función que obtiene el listado de alumnos, segun la especialidad, nivel y grupo
 		public function lista($especialidad,$nivel,$grupo)
 		{
-			$this->db->select('u.id_usuario,u.nombre_usuario,u.apellido_usuario,u.correo_usuario,l.usuario_login');
+			$this->db->select('l.usuario_login,l.rol_login,u.nombre_usuario,u.apellido_usuario,u.correo_usuario,u.id_usuario');
 			$this->db->from('tab_usuario u');
-			$this->db->join('tab_login l','u.id_usuario=l.id_usuario');
-			$this->db->where('u.nivel_usuario',$nivel);
-			$this->db->where('u.grupo_usuario',$grupo);
-			$query = $this->db->get('tab_usuario');
+			$this->db->join('tab_login l','l.id_usuario=u.id_usuario');
+			$this->db->where('especialidad_usuario',$especialidad);
+			$this->db->where('grupo_usuario',$grupo);
+			$this->db->where('nivel_usuario',$nivel);
+			$this->db->where('estado_usuario','activo');
+			$query = $this->db->get();
 			if($query->num_rows() > 0)
 			{
 				//si hay registros los devolvemos
-				return $query->result_array();
+				return $query->result();
 				//return false;
 			}
 			else

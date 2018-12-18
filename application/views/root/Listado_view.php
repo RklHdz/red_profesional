@@ -97,7 +97,7 @@
 
 <?php }else{ ?>
 <center>
-	<h1>La base de datos esta vacia</h1>
+	<h1>Sin registros en la base de datos</h1>
 </center>
 <?php } ?>
 
