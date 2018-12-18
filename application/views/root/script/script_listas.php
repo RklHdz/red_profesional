@@ -39,7 +39,7 @@
 		console.log(id);console.log(rol);
 		switch(rol)
 		{
-			case 'participante':
+			case 'Participante':
 				//vamos a abrir el modal para editar participante
 				$('#editar_participante').modal();
 				//hacemo una función ajax para obtener los datos a editar
@@ -67,7 +67,7 @@
 					}
 				});
 			break;
-			case 'administrativo':
+			case 'Administrativo':
 				//vamos a abrir el modal para editar administrativo
 				$('#editar_administrativo').modal();
 				//hacemo una función ajax para obtener los datos a editar

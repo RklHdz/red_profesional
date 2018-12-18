@@ -21,11 +21,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		//función para insertar los datos del usuario administrativo
-		public function insertar_usuario($nombre_usuario,$apellido_usuario,$correo_usuario)
+		public function insertar_usuario($nombre_usuario,$apellido_usuario,$correo_usuario,$cargo_usuario)
 		{
 			$this->db->set('nombre_usuario', $nombre_usuario);
 			$this->db->set('apellido_usuario', $apellido_usuario);
 			$this->db->set('correo_usuario', $correo_usuario);
+			$this->db->set('cargo_usuario',$cargo_usuario);
 			$this->db->insert('tab_usuario');
 			return $this->db->insert_id();
 		}
@@ -68,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function detalle($tipo)
 		{
 			switch ($tipo) {
-				case 'participante':
+				case 'Participante':
 					$this->db->select('u.id_usuario,u.nombre_usuario,u.apellido_usuario,l.usuario_login,l.rol_login');
 					$this->db->from('tab_usuario u');
 					$this->db->join('tab_login l','u.id_usuario=l.id_usuario');
@@ -87,7 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					}
 				break;
 								
-				case 'administrativo':
+				case 'Administrativo':
 					$this->db->select('u.id_usuario,u.nombre_usuario,u.apellido_usuario,l.usuario_login,l.rol_login');
 					$this->db->from('tab_usuario u');
 					$this->db->join('tab_login l','u.id_usuario=l.id_usuario');
@@ -131,7 +132,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function editar_usuario($id,$rol)
 		{
 			switch ($rol) {
-				case 'participante':
+				case 'Participante':
 					$this->db->select('*');
 					$this->db->from('tab_usuario');
 					$this->db->where('id_usuario',$id);
@@ -146,7 +147,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					}
 				break;
 				
-				case 'administrativo':
+				case 'Administrativo':
 					$this->db->select('nombre_usuario,apellido_usuario,correo_usuario,cargo_usuario');
 					$this->db->from('tab_usuario');
 					$this->db->where('id_usuario',$id);

@@ -122,7 +122,7 @@
 					<div class="panel panel-primary">
 						<div class="panel-heading">Datos generales</div>
 						<div class="panel-body">
-							<div class="form-row">
+							<div class="row">
 								<input type="hidden" name="id" id="id">
 								<div class="form-group col-md-6">
 									<label for="edit_nombre_usuario"><strong>Nombres</strong></label>
@@ -135,32 +135,32 @@
 								</div>
 							</div>
 
-							<div class="form-row">
-								<div class="form-group col-md-3">
-									<label for="edit_correo_usuario"><strong>Correo Electronico</strong></label>
-									<input type="text" class="form-control" id="edit_correo_usuario" name="edit_correo_usuario"  placeholder="Digite su correo" value="<?php echo set_value('edit_correo_usuario'); ?>">
-									
-								</div>
-								<div id="p_especialidad" class="form-group col-md-3">
-									<label for="edit_especialidad_usuario"><strong>Especialidad</strong></label>
-									<select class="form-control" name="edit_especialidad_usuario" id="edit_especialidad_usuario"><option value="JAVA">JAVA</option><option value="PHP">PHP</option></select>
-								</div>
-								<div id="p_grupo" class="form-group col-md-3">
-									<label for="edit_grupo_usuario"><strong>Grupo</strong></label>
-									<input type="text" class="form-control" placeholder="Digite su Grupo" id="edit_grupo_usuario" name="edit_grupo_usuario" value="<?php echo set_value('edit_grupo_usuario'); ?>">
-								</div>
-								<div id="p_nivel" class="form-group col-md-3">
-									<label for="edit_nivel_usuario"><strong>Nivel</strong></label>
-									<input type="text" class="form-control" placeholder="Digite su Nivel" id="edit_nivel_usuario" name="edit_nivel_usuario" value="<?php echo set_value('edit_nivel_usuario'); ?>">
-								</div>
-							</div>
-							<div class="form-row">
+							<div class="row">
 								<div class="form-group col-md-3">
 									<label for=""><strong>Estado</strong></label>
 									<select class="form-control" name="estado" id="estado">
 										<option value="activo">Participante</option>
 										<option value="inactivo">Ex-participante</option>
 									</select>
+								</div>
+								<div id="p_especialidad" class="form-group col-md-3">
+									<label for="edit_especialidad_usuario"><strong>Especialidad</strong></label>
+									<select class="form-control" name="edit_especialidad_usuario" id="edit_especialidad_usuario"><option value="JAVA">JAVA</option><option value="PHP">PHP</option></select>
+								</div>
+								<div id="p_grupo" class="form-group col-md-2">
+									<label for="edit_grupo_usuario"><strong>Grupo</strong></label>
+									<input type="text" class="form-control" placeholder="Digite su Grupo" id="edit_grupo_usuario" name="edit_grupo_usuario" value="<?php echo set_value('edit_grupo_usuario'); ?>">
+								</div>
+								<div id="p_nivel" class="form-group col-md-2">
+									<label for="edit_nivel_usuario"><strong>Nivel</strong></label>
+									<input type="text" class="form-control" placeholder="Digite su Nivel" id="edit_nivel_usuario" name="edit_nivel_usuario" value="<?php echo set_value('edit_nivel_usuario'); ?>">
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-7">
+									<label for="edit_correo_usuario"><strong>Correo Electronico</strong></label>
+									<input type="text" class="form-control" id="edit_correo_usuario" name="edit_correo_usuario"  placeholder="Digite su correo" value="<?php echo set_value('edit_correo_usuario'); ?>">
+									
 								</div>
 							</div>
 						</div>
@@ -212,7 +212,7 @@
 							</div>
 
 							<div class="form-row">
-								<div class="form-group col-md-3">
+								<div class="form-group col-md-4">
 									<label for="edit_correo_administrativo"><strong>Correo Electronico</strong></label>
 									<input type="text" class="form-control" id="edit_correo_administrativo" name="edit_correo_administrativo"  placeholder="Digite su correo" value="<?php echo set_value('edit_correo_administrativo'); ?>" required>
 									

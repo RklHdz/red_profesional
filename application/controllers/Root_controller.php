@@ -33,7 +33,7 @@ class Root_controller extends CI_Controller
 	{
 		#vamos a traer los datos de los participantes
 
-		$datos['detalle'] = $this->root->detalle('participante');
+		$datos['detalle'] = $this->root->detalle('Participante');
 
 		$datos['msj'] = 'participantes';
 
@@ -67,7 +67,7 @@ class Root_controller extends CI_Controller
 	{
 		#vamos a traer los datos de los administrativos
 
-		$datos['detalle'] = $this->root->detalle('administrativo');
+		$datos['detalle'] = $this->root->detalle('Administrativo');
 
 		$datos['msj'] = 'administrativos';
 
@@ -115,7 +115,7 @@ class Root_controller extends CI_Controller
 
 
 			//verificamos si el select tipo de usuario es participante
-			if($rol_login === 'participante')
+			if($rol_login === 'Participante')
 			{
 				//capturamos los campos nivel, grupo y especialidad
 				$nivel_usuario = trim($this->input->post('nivel_usuario'));
@@ -145,7 +145,7 @@ class Root_controller extends CI_Controller
 					nombre_usuario, apellido_usuario, correo_usuario 
 				   si la insercción es exitosa, nos devolvera el id del campo insertado*/
 
-				   if($rol_login === 'participante')
+				   if($rol_login === 'Participante')
 				   {
 				   		$id = $this->root->insertar_usuarioP(strip_tags($nombre_usuario),strip_tags($apellido_usuario),strip_tags($correo_usuario),strip_tags($nivel_usuario),strip_tags($grupo_usuario),strip_tags($especialidad_usuario));
 				   }

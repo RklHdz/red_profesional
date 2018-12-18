@@ -75,8 +75,8 @@
 							<div class="form-group col-md-4">
 								<label for="email"><strong>Tipo de usuario</strong></label>
 								<select class="form-control" name="rol_login" id="rol_login">
-									<option value="administrativo">Administrativo</option>
-									<option value="participante">Participante</option>
+									<option value="Administrativo">Administrativo</option>
+									<option value="Participante">Participante</option>
 								</select>
 							</div>
 						</div>

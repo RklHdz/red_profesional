@@ -9,7 +9,7 @@
 		$('#rol_login').change(function(){
 			var rol = $(this).val();
 			//verificamos si el valor es participante
-			if(rol=='participante')
+			if(rol=='Participante')
 			{
 				//eliminamos el campo para el administrativo
 				$('#l_cargo').remove();
