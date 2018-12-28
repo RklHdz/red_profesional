@@ -38,13 +38,27 @@
 
 		public function iniciar_sesion()
 		{	//recuperamos datos del formulario
-			$usuario = $this->input->post('username');
-			$password = $this->input->post('password');
-			$resultado=$this->Login->validar_credenciales($usuario,$password); 
-			$resultado=$this->Login_model->validar_credenciales($usuario,$password);
-			if (!$resultado){	
+			#$usuario = strtolower($this->input->post('username'));
+			#$password = $this->input->post('password');
+			$usuario = 'rkl';
+			$password = '123456789';
+			if($usuario === 'root'){
+				$resultado=$this->Login_model->validar_credenciales($usuario,$password);
+			}else{
+				#vamos a obtener la contraseña para decodificarla y compararla
+				$pass = $this->Login_model->get_contrasenia($usuario); echo "pass <br>"; print_r($pass[0]->contrasenia_login);
+				#comparamos
+				$pass1 = $this->encryption->decrypt($pass[0]->contrasenia_login); echo "<br>pass1: "; echo $this->encryption->decrypt('a6aaa2f7d312438adbea');
+				if($password === $pass1)
+				{
+					$resultado=$this->Login_model->validar_credenciales($usuario,$this->encryption->decrypt($pass[0]->contrasenia_login));
+				}
+			}
+			//$resultado=$this->Login->validar_credenciales($usuario,$password); 
+			//$resultado=$this->Login_model->validar_credenciales($usuario,$password);
+			if ($resultado === false){
 				 echo 0;
-         	}else{	
+         	}else{
          		$data = array(
 		            'id_login' => $resultado->id_login,
 					'usuario_login' => $resultado->usuario_login,
@@ -66,11 +80,7 @@
 					        break;
 					    
 					}
-					      
-          	}
-          	
-
-         	         	
+			}
 		}
 
 		public function vista_root()
@@ -82,7 +92,6 @@
 		public function vista_participante()
 		{
 			$this->load->view('participante');
-			
 		}
 
 		// función que muestar la vista para poder recuperar la contraseña

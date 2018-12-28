@@ -47,6 +47,21 @@
 
 		}
 
+		#función el cual hace la consulta para obtener lacontraseña del usuario
+		public function get_contrasenia($usuario)
+		{
+			$this->db->select('contrasenia_login');
+			$this->db->from('tab_login');
+			$this->db->where('usuario_login',$usuario);
+			$query = $this->db->get();
+			if($query->num_rows() > 0)
+			{
+				return $query->result();
+			}else{
+				return false;
+			}
+		}
+
 	}
 
 
