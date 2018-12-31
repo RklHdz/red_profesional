@@ -16,6 +16,7 @@
 			$this->load->model('Login_model');
 			$this->load->model('Usuario_model');
 			$this->load->library("email");
+			$this->load->library('encryption');
 		}
 
 		public function index()
@@ -38,26 +39,28 @@
 
 		public function iniciar_sesion()
 		{	//recuperamos datos del formulario
-			#$usuario = strtolower($this->input->post('username'));
-			#$password = $this->input->post('password');
-			$usuario = 'rkl';
-			$password = '123456789';
+			$usuario = strtolower($this->input->post('username'));
+			$password = $this->input->post('password');
+			#$usuario = 'rkl';
+			#$password = '123456789';
 			if($usuario === 'root'){
-				$resultado=$this->Login_model->validar_credenciales($usuario,$password);
+				$resultado = $this->Login_model->validar_credenciales($usuario,$password);
 			}else{
 				#vamos a obtener la contraseña para decodificarla y compararla
-				$pass = $this->Login_model->get_contrasenia($usuario); echo "pass <br>"; print_r($pass[0]->contrasenia_login);
+				$hash = $this->Login_model->get_contrasenia($usuario);
 				#comparamos
-				$pass1 = $this->encryption->decrypt($pass[0]->contrasenia_login); echo "<br>pass1: "; echo $this->encryption->decrypt('a6aaa2f7d312438adbea');
-				if($password === $pass1)
+				if(password_verify($password, $hash->contrasenia_login))
 				{
-					$resultado=$this->Login_model->validar_credenciales($usuario,$this->encryption->decrypt($pass[0]->contrasenia_login));
+					$resultado=$this->Login_model->validar_credenciales($usuario,$hash->contrasenia_login);
+				}else{
+					$resultado  = false;
 				}
 			}
 			//$resultado=$this->Login->validar_credenciales($usuario,$password); 
 			//$resultado=$this->Login_model->validar_credenciales($usuario,$password);
 			if ($resultado === false){
-				 echo 0;
+				 #echo "<br>falso<br>" ;var_dump(password_verify('123456789', '$2y$10$60N.yIyxAVnvY'));
+				echo 0;
          	}else{
          		$data = array(
 		            'id_login' => $resultado->id_login,

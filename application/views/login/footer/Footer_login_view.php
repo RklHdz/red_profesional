@@ -29,7 +29,7 @@
       success: function(data)
       {
         if(data==0){
-          swal("Ohh :c, lo sentimos, la contraseña o usuario no son validos"); 
+          swal("Lo sentimos, la contraseña o usuario no son validos"); 
         }
 
         if(data==1){
@@ -38,6 +38,11 @@
         }
 
         if(data==2){
+
+          window.location.replace("<?php echo site_url();?>Login_controller/vista_participante"); 
+        }
+
+        if(data==3){
 
           window.location.replace("<?php echo site_url();?>Login_controller/vista_participante"); 
         }

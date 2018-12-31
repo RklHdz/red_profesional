@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function insert_login($id,$usuario_login,$contrasenia_login,$rol_login)
 		{
 			//encriptamos la contraeña con la libreria encryption
-			$pass = $this->encryption->encrypt($contrasenia_login);
+			$pass = password_hash($contrasenia_login, PASSWORD_DEFAULT);
 			$this->db->set('usuario_login',$usuario_login);
 			$this->db->set('contrasenia_login',$pass);
 			$this->db->set('rol_login',$rol_login);
