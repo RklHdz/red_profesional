@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-12-2018 a las 18:45:01
--- Versión del servidor: 10.1.32-MariaDB
--- Versión de PHP: 7.2.5
+-- Tiempo de generación: 31-12-2018 a las 09:21:27
+-- Versión del servidor: 10.1.31-MariaDB
+-- Versión de PHP: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -128,7 +128,7 @@ CREATE TABLE `tab_laboral` (
 CREATE TABLE `tab_login` (
   `id_login` int(10) NOT NULL,
   `usuario_login` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
-  `contrasenia_login` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
+  `contrasenia_login` varchar(250) COLLATE utf8_spanish2_ci NOT NULL,
   `rol_login` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
   `id_usuario` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
@@ -138,14 +138,9 @@ CREATE TABLE `tab_login` (
 --
 
 INSERT INTO `tab_login` (`id_login`, `usuario_login`, `contrasenia_login`, `rol_login`, `id_usuario`) VALUES
-(1, 'kikex', '123456', 'administrativo', 1),
-(2, 'rkl', '123456789', 'participante', 2),
-(3, 'mario', '123456', 'administrativo', 3),
-(4, 'juan', '123456789', 'administrativo', 4),
-(5, 'maria', '123456', 'administrativo', 5),
-(6, 'pedro', '123456', 'administrativo', 6),
-(7, 'pablo', '123456789', 'participante', 7),
-(8, 'panfilo', '123456789', 'administrativo', 8);
+(1, 'root', 'root', 'root', 1),
+(9, 'kikex', '$2y$10$P5KcoOag5n/pT85KmrmJC.zH.KaE2GN6Q9mogNTYUbDrWK6XSP4AC', 'Administrativo', 9),
+(10, 'rkl', '$2y$10$sYPnC957A8hfBxIte.q/e.g14BVysARszRfC8fNDXHfPoDab3UaHS', 'Participante', 10);
 
 -- --------------------------------------------------------
 
@@ -247,14 +242,9 @@ CREATE TABLE `tab_usuario` (
 --
 
 INSERT INTO `tab_usuario` (`id_usuario`, `nombre_usuario`, `apellido_usuario`, `genero_usuario`, `dui_usuario`, `nit_usuario`, `licencia_usuario`, `carnet_menor_usuario`, `correo_usuario`, `telefono1_usuario`, `telefono2_usuario`, `direccion_usuario`, `cargo_usuario`, `especialidad_usuario`, `grupo_usuario`, `nivel_usuario`, `tipo_sangre_usuario`, `estado_usuario`, `fecha_nacimiento_usuario`, `fecha_inicio_pasantia`, `fecha_fin_pasantia`, `id_oferta`, `imagen_perfil`) VALUES
-(1, 'Salvador Enrique', 'Quezada Campos', NULL, NULL, NULL, NULL, NULL, 'enrique.qzada@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'Ana Raquel', 'Hernandez', NULL, NULL, NULL, NULL, NULL, 'ana@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 'mario', 'campos', NULL, NULL, NULL, NULL, NULL, 'ma@f.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'juan', 'valle', NULL, NULL, NULL, NULL, NULL, 'juan@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(5, 'maria', 'morales', NULL, NULL, NULL, NULL, NULL, 'm@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(6, 'pedro', 'cornejo', NULL, NULL, NULL, NULL, NULL, 'p@g.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 'pablo', 'escobar', NULL, NULL, NULL, NULL, NULL, 'coca@gmail.com', NULL, NULL, NULL, NULL, 'php', '1', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(8, 'panfilo', ' anacleto', NULL, NULL, NULL, NULL, NULL, 'anacleto@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(1, 'root', 'administrador', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 'Salvador Enrique', 'Quezada Campos', NULL, NULL, NULL, NULL, NULL, 'enrique.qzada@gmail.com', NULL, NULL, NULL, 'Programador', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(10, 'Ana Raquel', 'Hernandez Moran', NULL, NULL, NULL, NULL, NULL, 'enrique.qzada@gmail.com', NULL, NULL, NULL, NULL, 'PHP', '1', '3', NULL, 'activo', NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -402,7 +392,7 @@ ALTER TABLE `tab_laboral`
 -- AUTO_INCREMENT de la tabla `tab_login`
 --
 ALTER TABLE `tab_login`
-  MODIFY `id_login` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_login` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `tab_notificacion`
@@ -432,7 +422,7 @@ ALTER TABLE `tab_requerimiento`
 -- AUTO_INCREMENT de la tabla `tab_usuario`
 --
 ALTER TABLE `tab_usuario`
-  MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas
