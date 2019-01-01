@@ -49,7 +49,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'Login_controller/mostrar_login';
+#$route['default_controller'] = 'Login_controller/mostrar_login';
+$route['default_controller'] = 'Login_controller/mostrar_portada';
+$route['login'] = 'Login_controller/mostrar_login';
 $route['404_override'] = '';
 
 
@@ -77,6 +79,9 @@ $route['actualizar-administrativo'] = 'Root_controller/actualizar_administrativo
 
 #eliminar usuarios
 $route['eliminar-participante'] = 'Root_controller/eliminar_usuario';
+
+#salir
+$route['logout'] = 'Login_controller/logout';
 
 #Especialidades
 $route['especialidad/(:any)'] = 'Root_controller/grupos/$1';

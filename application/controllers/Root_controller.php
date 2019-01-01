@@ -12,7 +12,12 @@ class Root_controller extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
+		if (!$this->session->userdata('login')) 
+		 {
+		 	redirect(base_url('login'));
+		 }
 		$this->load->model('Root_model','root');
+
 	}
 
 

@@ -11,6 +11,11 @@
 		function __construct()
 		{
 			parent::__construct();
+            if (!$this->session->userdata('login')) 
+             {
+                redirect(base_url('login'));
+             }
+            
 			//$this->load->model('Login_model');
 			$this->load->model('oferta_model');
 			$this->load->model('requerimiento_model');

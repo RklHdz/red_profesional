@@ -146,7 +146,7 @@
 			</div>
 			<div class="top-menu">
 				<ul class="nav pull-right top-menu">
-					<li><a class="logout" href="#">Cerrar sesión</a></li>
+					<li><a class="logout" href="<?php echo base_url('logout') ?>">Cerrar sesión</a></li>
 				</ul>
 			</div>
 		</header>

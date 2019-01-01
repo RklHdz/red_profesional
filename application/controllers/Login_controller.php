@@ -12,6 +12,8 @@
 		function __construct()
 		{
 			parent::__construct();
+			
+			
 			$this->load->model('Login_model', 'Login', TRUE); // carga el modelo para poder acceder a sus metodos, en el primer paramentro ponemos el nombre del modelo, en el segundo se reasigna nombre al modelo y en el tercero se le pondra TRUE para que se conecte automaticamente a la base de datos 
 			$this->load->model('Login_model');
 			$this->load->model('Usuario_model');
@@ -28,6 +30,12 @@
 			$this->load->view('componentes/footer/Footer_view');//pie de pagina
 
 		} 
+
+		//esta función nos mostrara la portada
+		public function mostrar_portada()
+		{
+			$this->load->view('portada_view');
+		}
 
 		// esta función nos muestra la vista para poder logearnos y acceder al sistema.
 		public function mostrar_login()
@@ -84,6 +92,16 @@
 					    
 					}
 			}
+		}
+
+		public function logout()
+		{
+			//debemos vacíar para a continuación destruír correctamente
+			 //las sesiones en codeigniter
+			 $array_sesiones = array('id_login' => '', 'usuario_login' => '', 'rol_login' => '');
+			 $this->session->unset_userdata($array_sesiones);
+			 $this->session->sess_destroy();
+			 redirect(base_url('login')); //redirigimos al login
 		}
 
 		public function vista_root()
