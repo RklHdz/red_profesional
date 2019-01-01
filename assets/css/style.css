@@ -1976,7 +1976,8 @@ ul li {
 
 /*LOGIN CONFIGURATION PAGE*/
 .form-login {
-	max-width: 330px;
+    opacity: 0.8;
+	max-width: 430px;
 	margin: 100px auto 0;
 	background: #fff;
 	border-radius: 5px;
