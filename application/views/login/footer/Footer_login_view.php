@@ -33,18 +33,18 @@
         }
 
         if(data==1){
-
+        	//redireccionar para el root
           window.location.replace("<?php echo site_url();?>agregar-usuario"); 
         }
 
         if(data==2){
-
-          window.location.replace("<?php echo site_url();?>Login_controller/vista_participante"); 
+        	//redireccionar para el participante
+          window.location.replace("<?php echo site_url();?>participante"); 
         }
 
         if(data==3){
-
-          window.location.replace("<?php echo site_url();?>Login_controller/vista_participante"); 
+        	//redireccionar para el administrativo
+          window.location.replace("<?php echo site_url();?>administrativo"); 
         }
 
       }

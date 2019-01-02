@@ -90,6 +90,12 @@ $route['nivel/(:any)'] = 'Root_controller/niveles/$1';
 
 $route['grupo/(:any)/(:any)/(:any)'] = 'Root_controller/grupo/$1/$2/$3';
 
+#rutas para administrativo
+$route['administrativo'] = 'Administrativo_controller/administrativo';//ruta para ver el administrativo
+
+#rutas para participante
+$route['participante'] = 'Participante_controller/participante';//ruta para ver el participante
+
 $route['ejemplo'] = 'Ejemplo/participante';
 
 $route['translate_uri_dashes'] = FALSE;
