@@ -8,7 +8,7 @@
 				<ul class="sidebar-menu" id="nav-accordion">
 					<p class="centered"><a href="#"><img src="<?php echo base_url('assets/img/defecto/1.png') ?>" class="img-circle" width="80"></a></p>
 					<!--Cambiar por el nombre de usuario en la sesión-->
-					<h5 class="centered">USUARIO</h5>
+					<h5 class="centered"><?php echo $_SESSION['usuario_login'] ?></h5>
 					
 					<li class="sub-menu">
 						<a href="javascript:;">
