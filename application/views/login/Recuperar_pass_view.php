@@ -42,7 +42,7 @@
           
         <br><br>
         <div align="left">
-        <a style="padding: 0px; margin: 0px"  href="<?php echo base_url()?>">REGRESAR LOGIN</a></div>
+        <a style="padding: 0px; margin: 0px"  href="<?php echo base_url('login')?>">REGRESAR LOGIN</a></div>
       </form>
       </div>
     </div>

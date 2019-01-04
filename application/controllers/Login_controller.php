@@ -140,7 +140,8 @@
 					$solicitud=$this->Login_model->solicitud($usuario);
 					$datos = $this->Usuario_model->correo_usuario($solicitud);
 					$data['id']=$solicitud;
-					$data['contra']=md5($contra);
+					//$data['contra']=md5($contra);
+					$data['contra']=password_hash($contra, PASSWORD_DEFAULT);
 					$this->Login_model->act_contra($data);
 					//$filename= 'C:/xampp/htdocs/red_profesional/assets/img/red.jpg';
 					$filename= base_url().'assets/img/red.jpg';
