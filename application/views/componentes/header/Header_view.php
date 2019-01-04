@@ -26,9 +26,7 @@
 	<script src="<?php echo base_url('assets/js/Chart.js') ?>"></script>
 
 	<!--sweet alert 2 -->
-	<script src="<?php echo base_url()?>assets/package/dist/sweetalert2.all.min.js"></script>
-	<script src="<?php echo base_url()?>assets/package/dist/sweetalert2.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/package/dist/sweetalert2.min.css">
+	<script src="<?php echo base_url('assets/js/sweetalert2.all.min.js')?>" ></script>
 
 	<!-- =======================================================
 		Template Name: Dashio
