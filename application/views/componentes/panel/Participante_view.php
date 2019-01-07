@@ -33,7 +33,7 @@
 							<span>Hoja de vida</span>
 							</a>
 						<ul class="sub">
-							<li><a href="#">Crear hoja de vida</a></li>
+							<li><a href="crear-HV">Crear hoja de vida</a></li>
 							<li><a href="#">Editar hoja de vida</a></li>
 						</ul>
 					</li>
