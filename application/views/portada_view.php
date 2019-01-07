@@ -73,7 +73,7 @@
                     <a class="page-scroll" href="#centros"><i class="fa fa-graduation-cap" ></i>Centros de Formación</a>
                   </li>
                   <li>
-                    <a class="page-scroll" href="#centros"><i class="fa fa-globe"></i>Mapa</a>
+                    <a class="page-scroll" href="<?php echo base_url('mapa') ?>"><i class="fa fa-globe"></i>Mapa</a>
                   </li>
                   <li>
                     <a class="page-scroll" href="<?php echo base_url('login') ?>"><i class="fa fa-sign-in "></i>Login</a>

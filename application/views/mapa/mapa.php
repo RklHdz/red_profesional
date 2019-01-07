@@ -3,7 +3,7 @@
 <head>
 	<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
-	<link rel="stylesheet" type="text/css" href="assets/css/map.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/map.css') ?>">
 	<title></title>
 </head>
 <body>
