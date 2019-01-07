@@ -16,6 +16,7 @@
 			}
 
 			#cargar el modelo a ocupar
+			$this->load->model('Participante_model','participante');
 		}
 
 		#función para mostrar el participante
@@ -31,6 +32,12 @@
 		#función para mostrar cv de participante
 		public function mostrar_cv()
 		{
+			
+			//obtenemos el nombre del usuario
+			$usuario = $_SESSION['usuario_login'];
+			
+			$datos['info'] = $this->participante->datos_personales($usuario);
+			
 			$this->load->view('componentes/header/Header_view');//header
 			$this->load->view('componentes/nav/Nav_view');//navegación
 			$this->load->view('componentes/panel/Participante_view');//panel para el participante
