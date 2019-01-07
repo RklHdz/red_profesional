@@ -96,6 +96,8 @@ $route['administrativo'] = 'Administrativo_controller/administrativo';//ruta par
 #rutas para participante
 $route['participante'] = 'Participante_controller/participante';//ruta para ver el participante
 
+$route['crear-HV'] = 'Participante_controller/mostrar_cv';
+
 $route['ejemplo'] = 'Ejemplo/participante';
 
 $route['translate_uri_dashes'] = FALSE;
