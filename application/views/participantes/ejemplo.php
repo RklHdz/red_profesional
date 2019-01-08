@@ -1,40 +1,82 @@
-<div style="position: relative; overflow-y: scroll;">
-	<div class="panel" style="float: left;width: 48%;margin: auto;background: #ffff">
-		<nav id="navbar-example3" class="navbar navbar-light bg-light">
-			<a class="navbar-brand" href="#">Navbar</a>
-			<nav class="nav nav-pills flex-column">
-				<a class="nav-link" href="#item-1">Item 1</a>
-				<nav class="nav nav-pills flex-column">
-					<a class="nav-link ml-3 my-1" href="#item-1-1">Item 1-1</a>
-					<a class="nav-link ml-3 my-1" href="#item-1-2">Item 1-2</a>
-				</nav>
-				<a class="nav-link" href="#item-2">Item 2</a>
-				<a class="nav-link" href="#item-3">Item 3</a>
-				<nav class="nav nav-pills flex-column">
-					<a class="nav-link ml-3 my-1" href="#item-3-1">Item 3-1</a>
-					<a class="nav-link ml-3 my-1" href="#item-3-2">Item 3-2</a>
-				</nav>
-			</nav>
-		</nav>
-	</div>
+<style>
+	ul.nav-pills {
+	    top: 80px;
+	    position: fixed;
+	}
+	div.col-sm-9 div {
+	    height: 250px;
+	    font-size: 28px;
+	}
+	 
+	  
+	@media screen and (max-width: 810px) {
+	    #section1, #section2, #section3, #section41, #section42  {
+	      margin-left: 150px;
+	    }
+	}
+</style>
+<div class="cantainer" data-spy="scroll" data-target="#myScrollspy" data-offset="20" style="position: relative;">
 
-	<div class="panel" style="float: right;width: 48%;margin: auto;background: #ffff">
-		<div data-spy="scroll" data-target="#navbar-example3" data-offset="0">
-		<h4 id="item-1">Item 1</h4>
-		<p>...</p>
-		<h5 id="item-1-1">Item 1-1</h5>
-		<p>...</p>
-		<h5 id="item-1-2">Item 1-2</h5>
-		<p>...</p>
-		<h4 id="item-2">Item 2</h4>
-		<p>...</p>
-		<h4 id="item-3">Item 3</h4>
-		<p>...</p>
-		<h5 id="item-3-1">Item 3-1</h5>
-		<p>...</p>
-		<h5 id="item-3-2">Item 3-2</h5>
-		<p>...</p>
-	</div>
-	</div>
+	<section>
+		<div class="panel" style="float: left;width: 15%;margin: auto; ">
+			<div class="row mt">
+				<div class="col-md-12">	
+					<div class="panel ">
+						<div class="panel-heading"><center><h2><strong></strong></h2></center></div>
+						<div class="panel-body">
+							<nav class="col-sm-3" id="myScrollspy">
+							    <ul class="nav nav-pills nav-stacked">
+							        <li class="active"><a href="#section1">Educación</a></li>
+							        <li><a href="#section2">Section 2</a></li>
+							        <li><a href="#section3">Section 3</a></li>
+							        <li class="dropdown">
+							          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Section 4 <span class="caret"></span></a>
+							          <ul class="dropdown-menu">
+							            <li><a href="#section41">Section 4-1</a></li>
+							            <li><a href="#section42">Section 4-2</a></li>                     
+							          </ul>
+							        </li>
+							    </ul>
+							</nav>						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<!--aqui iran las inputs a llenar-->
 
+		<div class="panel" style="float: right;width: 80%;margin: auto;background: #ffff">
+			<div class="row mt">
+				<div class="col-md-12">	
+					<div class="panel ">
+						<div class="panel-heading"><center><h2><strong>Educación</strong></h2></center></div>
+						<div class="panel-body">
+							<div class="col-sm-9">
+						      <div id="section1">    
+						        <h1>Section 1</h1>
+						        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+						      </div>
+						      <div id="section2"> 
+						        <h1>Section 2</h1>
+						        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+						      </div>        
+						      <div id="section3">         
+						        <h1>Section 3</h1>
+						        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+						      </div>
+						      <div id="section41">         
+						        <h1>Section 4-1</h1>
+						        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+						      </div>      
+						      <div id="section42">         
+						        <h1>Section 4-2</h1>
+						        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+						      </div>
+						    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</section>	
 </div>
