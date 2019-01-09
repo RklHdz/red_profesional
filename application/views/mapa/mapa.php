@@ -66,7 +66,7 @@ for (var i = Things.length - 1; i >= lista.length ; i--) {
 	
 var marker = L.marker([lista[i].latitud, lista[i].longuitud]).addTo(map)
 
-}
+}*/
 </script>
 
 
