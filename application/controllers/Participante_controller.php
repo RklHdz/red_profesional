@@ -41,7 +41,8 @@
 			$this->load->view('componentes/header/Header_view');//header
 			$this->load->view('componentes/nav/Nav_view');//navegación
 			$this->load->view('componentes/panel/Participante_view');//panel para el participante
-			$this->load->view('participantes/ejemplo'); //vista que se quiere mostrar
+			$this->load->view('participantes/cv_view'); //vista que se quiere mostrar
 			$this->load->view('componentes/footer/Footer_view');//pie de pagina
+			$this->load->view('participantes/script/script_cv');
 		}
 	}
