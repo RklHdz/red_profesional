@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+	<meta charset="utf-8">
 	<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
@@ -13,8 +14,8 @@
 	<style>
   #map { 
     width: 100%;
-    height: 580px;
-    box-shadow: 5px 5px 5px #888;
+    height: 750px;
+    /*box-shadow: 20px 20px 20px #888;*/
  }
 </style>
 </head>
@@ -30,7 +31,7 @@
 
      L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-		maxZoom: 18
+		maxZoom: 25
 		}).addTo(map);
 
      L.control.scale().addTo(map);
