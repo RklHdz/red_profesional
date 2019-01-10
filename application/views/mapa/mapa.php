@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!--CDN LEFTLET-->
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
@@ -10,7 +10,7 @@
    crossorigin=""/> 
  
 
-	<style>
+	<style style="text-align: center;">
   #map { 
     width: 100%;
     height: 750px;
@@ -26,9 +26,10 @@
 <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
    integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
    crossorigin=""></script>
+
 	<script>
   var map = L.map('map').
-     setView([13.698370, -89.188990],
+     setView([13.702304, -89.200855],
      17);
 
      L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -50,20 +51,20 @@
     }
 });
      //Se unen los 3 iconos//
-var IconOne = new MoreIcon({iconUrl: 'asset/img/ubicacion1.png'}),
-    IconTwo = new MoreIcon({iconUrl: 'asset/img/ubicacion1.png'}),
-    IconThree = new MoreIcon({iconUrl: 'asset/img/ubicacion1.png'});
+var IconOne = new MoreIcon({iconUrl: 'assets/img/ubicacion1.png'}),
+    IconTwo = new MoreIcon({iconUrl: 'assets/img/ubicacion1.png'}),
+    IconThree = new MoreIcon({iconUrl: 'assets/img/ubicacion1.png'});
      //Finalizacion de Icono personalizado//
 	 //Inicio de Icono USAM//
-     L.marker([13.702304, -89.200855], {icon: IconOne}).addTo(map).bindPopup("<b>Centro de formacion Profesional</b><br> Universidad Salvadoreña <br> Alberto Masferrer <b>USAID-USAM</b>");
+     L.marker([13.702304, -89.200855], {icon: IconOne}).addTo(map).bindPopup("<b>Centro de formacion Profesional</b><br> Universidad Salvadoreña Alberto Masferrer <br/><b>USAID-USAM</b>");
      //Fin de Icono USAM//
 
      //Inicio de Icono UNIVO//
-     L.marker([13.482044, -88.183677], {icon: IconTwo}).addTo(map).bindPopup("<b>Centro de formacion Profesional</b><br> Universidad de  Oriente <br/><b>USAID-UNIVO</b>");
+     L.marker([13.482044, -88.183677], {icon: IconTwo}).addTo(map).bindPopup("<b>Centro de formacion Profesional</br>Universidad de  Oriente <br/><b>USAID-UNIVO</b>");
      //Fin de Icono UNIVO//
 
      //Inicio de Icono Gloria de Kriette//
-     L.marker([13.694528, -89.216815], {icon: IconThree}).addTo(map).bindPopup("<b>Centro de formacion Profesional</b><br> Fundación <br> Gloria de Kriette <br/><b>USAID-FGK</b> <br/> Dirección de Centro:<br/> 49 Avenida Sur, San Salvador.");
+     L.marker([13.694528, -89.216815], {icon: IconThree}).addTo(map).bindPopup("<b>Centro de formacion Profesional</b><br> Fundación Gloria de Kriette <b>USAID-FGK</b> <br/> <b>Dirección de Centro:</b><br/> 49 Avenida Sur, San Salvador.");
      //Fin de Icono Gloria Kriette//
      
 </script>
