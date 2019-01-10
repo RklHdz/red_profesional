@@ -2,31 +2,33 @@
 <html lang="es">
 <head>
 	<meta charset="utf-8">
-	<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+	<meta name="viewport" >
+	<!--CDN LEFTLET-->
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
    crossorigin=""/> 
- 	<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-   crossorigin=""></script>
+ 
 
 	<style>
   #map { 
     width: 100%;
     height: 750px;
-    /*box-shadow: 20px 20px 20px #888;*/
  }
 </style>
 </head>
 	<body>
+		<!--DIV DE MAPA-->
 		<div id = 'map'></div>
 
-	</body>
-
+		<!--JS-->
+<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+   crossorigin=""></script>
 	<script>
   var map = L.map('map').
-     setView([13.702304199999999, -89.20085569999999],
+     setView([13.698370, -89.188990],
      17);
 
      L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -36,42 +38,35 @@
 
      L.control.scale().addTo(map);
 
-     var marker = L.marker([13.702304, -89.200855]).addTo(map);//Ubicación estática de puntero
+     //Inicio de Icono personalizado//
+     var MoreIcon = L.Icon.extend({
+    options: {
 
-     marker.bindPopup("<b>Centro de formacion Profesional</b><br> Universidad Salvadoreña <br> Alberto Masferrer <b>USAID-USAM</b>").openPopup();
+        iconSize:     [38, 50],
+        shadowSize:   [50, 64],
+        iconAnchor:   [22, 94],
+        shadowAnchor: [4, 62],
+        popupAnchor:  [-3, -76]
+    }
+});
+     //Se unen los 3 iconos//
+var IconOne = new MoreIcon({iconUrl: 'asset/img/ubicacion1.png'}),
+    IconTwo = new MoreIcon({iconUrl: 'asset/img/ubicacion1.png'}),
+    IconThree = new MoreIcon({iconUrl: 'asset/img/ubicacion1.png'});
+     //Finalizacion de Icono personalizado//
+	 //Inicio de Icono USAM//
+     L.marker([13.702304, -89.200855], {icon: IconOne}).addTo(map).bindPopup("<b>Centro de formacion Profesional</b><br> Universidad Salvadoreña <br> Alberto Masferrer <b>USAID-USAM</b>");
+     //Fin de Icono USAM//
 
+     //Inicio de Icono UNIVO//
+     L.marker([13.482044, -88.183677], {icon: IconTwo}).addTo(map).bindPopup("<b>Centro de formacion Profesional</b><br> Universidad de  Oriente <br/><b>USAID-UNIVO</b>");
+     //Fin de Icono UNIVO//
 
-
-
-
-
-     /*var lista = {
-	"dato1": [
-	"latitud": 13.702304,
-	"longuitud": -89.200855,
-	"nombre": "la info del dato 1"
-	],
-	"dato2": [
-	"latitud": 13.705304,
-	"longuitud": -89.260855,
-	"nombre": "la info del dato 2"
-	],
-	"dato3": [
-	"latitud": 13.712304,
-	"longuitud": -89.300855,
-	"nombre": "la info del dato 3"
-	]
-}
-
-for (var i = Things.length - 1; i >= lista.length ; i--) {
-	
-var marker = L.marker([lista[i].latitud, lista[i].longuitud]).addTo(map)
-
-}*/
+     //Inicio de Icono Gloria de Kriette//
+     L.marker([13.694528, -89.216815], {icon: IconThree}).addTo(map).bindPopup("<b>Centro de formacion Profesional</b><br> Fundación <br> Gloria de Kriette <br/><b>USAID-FGK</b> <br/> Dirección de Centro:<br/> 49 Avenida Sur, San Salvador.");
+     //Fin de Icono Gloria Kriette//
+     
 </script>
-
-
-
+</body>
 </html>
-
 
