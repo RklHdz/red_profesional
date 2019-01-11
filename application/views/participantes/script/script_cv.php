@@ -4,14 +4,6 @@
 		//document.getElementsByName("num_educacion")[0].value = con;
 		var num = $('#num_educacion').val(con);
 
-		if(num === '0')
-		{
-			console.log('cero');
-		}
-		else{
-			console.log('dato');
-		}
-
 		$('#radioDUI').click(function(){
 		
 			$('#dui_label').remove();
@@ -84,7 +76,12 @@
 			//vamos a eliminar el ultimo elemento creado
 			$('#'+con+'').remove();
 			$('#raya-'+con+'').remove();
-			con--;
+			if(con === 0){
+				con = 0;
+			}else{
+				con--;	
+			}
+			
 			document.getElementsByName("num_educacion")[0].value = con;
 		})
 
@@ -92,7 +89,7 @@
 		$('#btn-add-educ').click(function(){
 			//creamos un contador! el cual nos servira para saber cuantos registros se han creado
 			
-			con++;console.log(con);
+			con++;
 			
 			var html ='';
 
