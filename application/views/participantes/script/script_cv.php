@@ -145,5 +145,62 @@
 			document.getElementsByName("num_educacion")[0].value = con;
 	}
 	
-//****************************************************************************************************************************************************
+//********************************************************************* FORMACIÓN TECNICA Y CURSOS *********************************************************************
+	$('#formacion_si').click(function(){
+		$('#formacion_registro').remove();
+		var html = '';
+
+		html = '<div id="formacion_registro">'+
+					'<div  class="row">'+
+						'<label class="col-md-5">*Ordenar formación técnica en orden cronólogico: Iniciar con el más reciente y terminar lista con el más antiguo. Incluir solamente cursos de los cuales se tenga comprobante o diploma respectivo. Nombre completo del Curso Técnico y  año de graduación</label>'+
+					'</div>'+
+					'<div class="row">'+
+						'<div class="form-group">'+
+							'<div class="col-md-3">'+
+								'<button type="button" onclick=agregar_formacion() class="btn btn-info" id="btn-add-form">Agregar Formación</button>'+
+								'<button type="button" style="margin-left: 20px" onclick=eliminar_formacion() class="btn btn-danger" id="btn-delete-form">Eliminar</button>'+
+							'</div>'+
+						'</div>'+
+						'</div>'+
+						'<!-- aqui iran apareciendo las diversas registro de formación o curso-->'+
+						'<div id="registro_form" style="margin-top: 20px">'
+								
+						'<br>'+
+					'</div>'+
+				'</div>';
+		$('#formacion').append(html);
+	});
+
+	function agregar_formacion()
+	{
+		/*<div class="row" id="form-"> <div class="form-row">
+									<div class="form-group col-md-6">
+										<label for="nombre_form-'+con_form+'">Nombre de la formación o curso</label>
+										<input type="text" class="form-control" id="nombre_form-'+con_form+'" name="nombre_form-'+con_form+'" placeholder="Título">
+									</div>
+									<div class="form-group col-md-6">
+										<label for="institucion_form-'+con_form+'">Institución</label>
+										<input type="text" class="form-control" id="institucion_form-'+con_form+'" name="institucion_form-'+con_form+'" placeholder="Institución donde se realizó la formación o curso">
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-group col-md-4">
+										<label for="anio_form-'+con_form+'">Año</label>
+										<input type="text" class="form-control" id="anio_form-'+con_form+'" name="anio_form-'+con_form+'" placeholder="Año que se realizo la formación o curso">
+									</div>
+									<div class="form-group col-md-4">
+										<label for="tiempo_estudio_educ-">Tiempo de Duración</label>
+										<input type="text" class="form-control" id="tiempo_estudio_educ-'+con_form+'" name="tiempo_estudio_educ-'+con_form+'" placeholder="Tiempo de duración de la formación o curso">
+									</div>
+									<div class="form-group col-md-4">
+										<label for="tipo_form-'+con_form+'">Tipo</label>
+										<select class="form-control" name="tipo_form-'+con_form+'" id="tipo_form-'+con_form+'">
+											<option value="formacion">Formación Técnica</option>
+											<option value="curso">Curso Técnico</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						<hr id="raya_form-'+con_form+'">*/
+	}
 </script>
