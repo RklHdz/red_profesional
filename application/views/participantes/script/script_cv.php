@@ -1,9 +1,10 @@
 <script>
-	$(document).ready(function(){
+		
+		//paso 2
 		var con=0;
-		//document.getElementsByName("num_educacion")[0].value = con;
-		var num = $('#num_educacion').val(con);
+		//var num = $('#num_educacion').val(con);
 
+//************************** INFORMACION PERSONAL PASO 1 *******************************************
 		$('#radioDUI').click(function(){
 		
 			$('#dui_label').remove();
@@ -55,45 +56,53 @@
 			$('#licencia_label').remove();
 			$('#licencia_select').remove();
 		});
-
+//**************************************** EDUCACION PASO 2 ********************************************************************************************
 		//para educación
 		$('#estudio_si').click(function(){
 			$('#msj_edu').remove();//borramos el msj que se genera si se selecciona no
+			$('#educacion_registro').remove();
 			var html='';
 
 			//vamos a crear el formulario
-
+			html = '<div id="educacion_registro"> <div  class="row">'+
+						'<label class="col-md-5">Ordenar educación en orden cronológico: Iniciar con el más reciente y terminar lista con el más antiguo. Incluir bachillerato, carrera técnica o universitaria que tengas.</label>'+
+					'</div>'+
+					'<div class="row">'+
+						'<div class="form-group">'+
+							'<div class="col-md-3">'+
+								'<button type="button" onclick=agregar_educacion() class="btn btn-info" id="btn-add-educ">Agregar educación</button>'+
+								'<button type="button" style="margin-left: 20px" onclick=eliminar_educacion() class="btn btn-danger" id="btn-delete-educ">Eliminar</button>'+
+							'</div>'+
+						'</div>'+
+					'</div>'+
+					'<!-- aqui iran apareciendo las diversas registro de educación-->'+
+					'<div id="registro_educ">'+
+						'<br>'+
+					'</div></div>';
+			$('#educacion').append(html);
 
 		});
+
+
+
 		$('#estudio_no').click(function(){
 			var html='<h3 id="msj_edu">Sin estudios</h3>';
 			$('#msj_edu').remove();//borramos el msj que se genera si se selecciona no
+			$('#educacion_registro').remove();
+			con = 0;
 			$('#educacion').append(html);
 		});
 
-		//función anonima para eliminar un registro
-		$('#btn-delete-educ').click(function(){
-			//vamos a eliminar el ultimo elemento creado
-			$('#'+con+'').remove();
-			$('#raya-'+con+'').remove();
-			if(con === 0){
-				con = 0;
-			}else{
-				con--;	
-			}
-			
-			document.getElementsByName("num_educacion")[0].value = con;
-		})
 
-		//función anonima para agregar campos 
-		$('#btn-add-educ').click(function(){
-			//creamos un contador! el cual nos servira para saber cuantos registros se han creado
+	function agregar_educacion()
+	{
+		//creamos un contador! el cual nos servira para saber cuantos registros se han creado
 			
 			con++;
 			
 			var html ='';
 
-			html = '<div class="row" id="'+con+'"> <div class="form-row">'+
+			html = '<div class="row" id="educ-'+con+'"> <div class="form-row">'+
 	    				'<div class="form-group col-md-6">'+
 	      					'<label for="titulo_educ-'+con+'">Título</label>'+
 	      					'<input type="text" class="form-control" id="titulo_educ-'+con+'" name="titulo_educ-'+con+'" placeholder="Título">'+
@@ -117,19 +126,24 @@
 	      					'<input type="text" class="form-control" id="tiempo_estudio_educ-'+con+'" name="tiempo_estudio_educ-'+con+'" placeholder="Tiempo de estudio">'+
 	    				'</div>'+
 	  				'</div>'+
-	  				'<!--<div class="form-row">'+
-	    				'<div class="form-group col-md-4">'+
-	      					'<button type="button" class="btn btn-danger" id="btn-del-educ">Eliminar</button>'+
-	    				'</div>'+
-	  				'</div>--></div><hr id="raya-'+con+'">';
+	  				'</div><hr id="raya-'+con+'">';
 	  		$('#registro_educ').append(html);
 	  		document.getElementsByName("num_educacion")[0].value = con;
-		})
+	}
 
-
-		//////////////
-	});
-
+	function eliminar_educacion()
+	{
+		//vamos a eliminar el ultimo elemento creado
+			$('#educ-'+con+'').remove();
+			$('#raya-'+con+'').remove();
+			if(con === 0){
+				con = 0;
+			}else{
+				con--;	
+			}
+			
+			document.getElementsByName("num_educacion")[0].value = con;
+	}
 	
-
+//****************************************************************************************************************************************************
 </script>

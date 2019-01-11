@@ -140,22 +140,7 @@
 										  </label>
 										</div>
 										<div id="educacion">
-											<div class="row">
-												<label class="col-md-5">Ordenar educación en orden cronológico: Iniciar con el más reciente y terminar lista con el más antiguo. Incluir bachillerato, carrera técnica o universitaria que tengas.</label>
-											</div>
-											<div class="row">
-												<div class="form-group">
-													<div class="col-md-3">
-														<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".modal-registro-edu">Agregar educación</button>-->
-														<button type="button" class="btn btn-info" id="btn-add-educ">Agregar educación</button>
-														<button type="button" class="btn btn-danger" id="btn-delete-educ">Eliminar</button>
-													</div>
-												</div>	
-											</div>
-											<!-- aqui iran apareciendo las diversas registro de educación-->
-											<div id="registro_educ">
-												<br>
-											</div>
+											
 										</div>
 
 									</div>
@@ -167,7 +152,88 @@
 			</div>
 			<!-- paso 3 formacion tecnica-->
 			<div class="step" id="step-3">
-				
+				<div class="row mt">
+					<div class="col-md-12">	
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h4>Formación Técnica y Cursos (paso 3)
+									<i data-toggle="tooltip" data-placement="top" title="Agregar la educación desde la mas reciente a la mas antigua">
+										<img src="<?php echo base_url('assets/img/ayuda.png') ?>" alt="" width="20px">
+									</i>
+								</h4>
+							</div>
+							<div class="panel-body"> 
+								<div class="row">
+									<div style="margin: 10px">
+										<h5>¿Posee Formación ténica o cursos?</h5>
+										<div class="form-check" style="margin-left: 10px">
+										  <input class="form-check-input" type="radio" name="formacion_pre" id="formacion_si" value="si">
+										  <label class="form-check-label" for="formacion_si">
+										    SI
+										  </label>
+										</div>
+										<div class="form-check" style="margin-left: 10px">
+										  <input class="form-check-input" type="radio" name="formacion_pre" id="formacion_no" value="no">
+										  <label class="form-check-label" for="formacion_no">
+										    NO
+										  </label>
+										</div>
+										<div id="formacion">
+											<div id="formacion_registro">
+												<div  class="row">
+													<label class="col-md-5">*Ordenar formación técnica en orden cronólogico: Iniciar con el más reciente y terminar lista con el más antiguo. Incluir solamente cursos de los cuales se tenga comprobante o diploma respectivo. Nombre completo del Curso Técnico y  año de graduación 
+													</label>
+												</div>
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-3">
+															<button type="button" onclick=agregar_formacion() class="btn btn-info" id="btn-add-form">Agregar Formación</button>
+															<button type="button" style="margin-left: 20px" onclick=eliminar_formacion() class="btn btn-danger" id="btn-delete-form">Eliminar</button>
+														</div>
+													</div>
+												</div>
+												<!-- aqui iran apareciendo las diversas registro de formación o curso-->
+												<div id="registro_form" style="margin-top: 20px">
+														<div class="row" id="form-"> <div class="form-row">
+															<div class="form-group col-md-6">
+																<label for="nombre_form-'+con_form+'">Nombre de la formación o curso</label>
+																<input type="text" class="form-control" id="nombre_form-'+con_form+'" name="nombre_form-'+con_form+'" placeholder="Título">
+															</div>
+															<div class="form-group col-md-6">
+																<label for="institucion_form-'+con_form+'">Institución</label>
+																<input type="text" class="form-control" id="institucion_form-'+con_form+'" name="institucion_form-'+con_form+'" placeholder="Institución donde se realizó la formación o curso">
+															</div>
+														</div>
+														<div class="form-row">
+															<div class="form-group col-md-4">
+																<label for="anio_form-'+con_form+'">Año</label>
+																<input type="text" class="form-control" id="anio_form-'+con_form+'" name="anio_form-'+con_form+'" placeholder="Año que se realizo la formación o curso">
+															</div>
+															<div class="form-group col-md-4">
+																<label for="tiempo_estudio_educ-">Tiempo de Duración</label>
+																<input type="text" class="form-control" id="tiempo_estudio_educ-'+con_form+'" name="tiempo_estudio_educ-'+con_form+'" placeholder="Tiempo de duración de la formación o curso">
+															</div>
+															<div class="form-group col-md-4">
+																<label for="tipo_form-'+con_form+'">Tipo</label>
+																<select class="form-control" name="tipo_form-'+con_form+'" id="tipo_form-'+con_form+'">
+																	<option value="formacion">Formación Técnica</option>
+																	<option value="curso">Curso Técnico</option>
+																</select>
+															</div>
+														</div>
+													</div>
+													<hr id="raya_form-'+con_form+'">
+													<br>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<!-- paso 4-->
 			<div class="step" id="step-4">
@@ -187,7 +253,7 @@
 			</div>
 		</div>
 		<!-- inputs escondidos -->
-		<input type="text" id="num_educacion" name="num_educacion">
+		<input type="hidden" id="num_educacion" name="num_educacion">
 	</form>
 </div>
 
