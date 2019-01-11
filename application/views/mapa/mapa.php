@@ -7,21 +7,21 @@
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-   crossorigin=""/> 
+   crossorigin=""/>
+   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
  
 
-	<style style="text-align: center;">
-  #map { 
-    width: 100%;
-    height: 750px;
- }
-</style>
 </head>
 	<body>
+        <!--Boton de regresar-->
+        <a href="<?php echo base_url() ?>" class="btn btn-danger btn-default active" role="button" style="margin-left: 32px;">Regresar</a>
 		<!--DIV DE MAPA-->
-		<div id = 'map'></div>
+		<div id = 'map' style="width: 95%; height: 650px; display: block; margin: auto;"></div>
+
 
 		<!--JS-->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
    integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
@@ -43,9 +43,9 @@
      var MoreIcon = L.Icon.extend({
     options: {
 
-        iconSize:     [38, 50],
-        shadowSize:   [50, 64],
-        iconAnchor:   [22, 94],
+        iconSize:     [38, 40],
+        shadowSize:   [50, 54],
+        iconAnchor:   [22, 84],
         shadowAnchor: [4, 62],
         popupAnchor:  [-3, -76]
     }
@@ -67,7 +67,9 @@ var IconOne = new MoreIcon({iconUrl: 'assets/img/ubicacion1.png'}),
      L.marker([13.694528, -89.216815], {icon: IconThree}).addTo(map).bindPopup("<b>Centro de formacion Profesional</b><br> Fundación Gloria de Kriette <b>USAID-FGK</b> <br/> <b>Dirección de Centro:</b><br/> 49 Avenida Sur, San Salvador.");
      //Fin de Icono Gloria Kriette//
      
+
 </script>
+
 </body>
 </html>
 
