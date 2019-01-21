@@ -18,6 +18,8 @@
            // return $this->db->insert_id();
 		}
 
+		
+		
 		/*public function datos_oferta($oferta){
 			
     	}*/

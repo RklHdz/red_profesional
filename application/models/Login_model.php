@@ -62,7 +62,17 @@
 			}
 		}
 
-	}
+		public function validar_usuario_notificacion($tipo)
+		{
+			 $this->db->select('id_usuario,');
+                       $this->db->from('tab_login');
+                       $this->db->where('rol_login =',$tipo);
+                        $resultado = $this->db->get();
+                           
+                       return $resultado->result(); 
+		}
 
+
+	}
 
 

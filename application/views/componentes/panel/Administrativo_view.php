@@ -33,8 +33,8 @@
 							</a>
 						<ul class="sub">
 							<!--<li class="active"><a href="#">Blank Page</a></li>-->
-							<li><a href="<?php echo base_url('oferta_controller') ?>">Ver ofertas</a></li>
-							<li><a href="#">Crear ofertas</a></li>
+							<li><a href="">Ver ofertas</a></li>
+							<li><a href="<?php echo base_url('oferta_controller') ?>">Crear ofertas</a></li>
 						</ul>
 					</li>
 					<li class="sub-menu">
