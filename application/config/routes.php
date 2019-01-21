@@ -98,6 +98,8 @@ $route['participante'] = 'Participante_controller/participante';//ruta para ver 
 
 $route['crear-HV'] = 'Participante_controller/mostrar_cv';
 
+$route['guardar-hv'] = 'Participante_controller/guardar_cv';
+
 $route['ejemplo'] = 'Ejemplo/participante';
 
 $route['translate_uri_dashes'] = FALSE;

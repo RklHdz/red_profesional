@@ -45,4 +45,11 @@
 			$this->load->view('componentes/footer/Footer_view');//pie de pagina
 			$this->load->view('participantes/script/script_cv');
 		}
+
+		#función para agregar la hoja de vida
+		public function guardar_cv()
+		{
+			#primero vamos a obtener los datos de la información personal
+			#segundo a verificar cada uno de los select de cada paso, para ver si contiene o no el paso indicado
+		}
 	}
