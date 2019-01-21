@@ -104,4 +104,7 @@ $route['ejemplo'] = 'Ejemplo/participante';
 
 $route['translate_uri_dashes'] = FALSE;
 
+#rutas para mapa
+$route['mapa'] = 'Mapa_controller/MostrarMapa';
+
 
